@@ -35,47 +35,19 @@ Create the following Terraform files:
 - Keep diagram updated with infrastructure changes
 
 ## 4. Create ibm_catalog.json
-This is the key file for IBM Cloud Catalog onboarding. It includes:
 
-### Product Metadata:
-- `name` - Unique identifier (lowercase with hyphens)
-- `label` - Display name for the catalog
-- `product_kind` - Set to "solution" for DAs
-- `tags` - Array of tags for catalog categorization
-- `keywords` - Search terms for discovery
-- `short_description` - Brief summary (1-2 sentences)
-- `long_description` - Detailed description with disclaimers
-- `offering_docs_url` - Link to documentation
-- `offering_icon_url` - Base64-encoded SVG or image URL
+The `ibm_catalog.json` file is the key configuration file for IBM Cloud Catalog onboarding. It defines how your DA appears and behaves in the IBM Cloud Catalog.
 
-### Flavors Configuration:
-- `name` - Flavor identifier (e.g., "standard", "basic")
-- `label` - Display name
-- `install_type` - Typically "fullstack"
-- `working_directory` - Path to Terraform files
-- `compliance` - Compliance metadata object
+**📖 For detailed step-by-step instructions on creating this file, see:**
+[Creating an ibm_catalog.json File from Scratch](https://github.com/IBM/da-bootstrap/blob/main/topics/creating-ibm-catalog-json.md)
 
-### IAM Permissions:
-- Define required IBM Cloud service permissions
-- Specify role CRNs (e.g., Manager, Administrator)
-- Example: `crn:v1:bluemix:public:iam::::serviceRole:Manager`
-
-### Architecture Diagrams:
-- Link to diagram files with SHA-256 hashes
-- Provide captions and descriptions
-- Specify MIME types
-
-### Configuration Parameters:
-- Map Terraform variables to UI inputs
-- Define data types (string, password, number, boolean)
-- Set default values and required flags
-- Add custom UI widgets for enhanced UX
-
-### Custom UI Widgets (Optional):
-- `vpc_region` - Region selector
-- `resource_group` - Resource group dropdown
-- `ssh_key` - SSH key selector
-- `subnet` - Subnet selector
+### Key Components:
+- Product metadata (name, description, tags, keywords)
+- Flavors configuration (deployment variations)
+- IAM permissions required
+- Architecture diagram references
+- Terraform variable mappings to UI inputs
+- Custom UI widgets for enhanced user experience
 
 ## 5. Documentation
 
@@ -180,6 +152,7 @@ terraform apply
 
 ## Additional Resources
 
+- [Creating ibm_catalog.json - Step-by-Step Guide](https://github.com/IBM/da-bootstrap/blob/main/topics/creating-ibm-catalog-json.md)
 - [IBM Cloud Catalog Management API](https://cloud.ibm.com/apidocs/resource-catalog/private-catalog)
 - [Deployable Architecture Documentation](https://cloud.ibm.com/docs/secure-enterprise)
 - [Terraform IBM Cloud Provider](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs)
