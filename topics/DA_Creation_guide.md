@@ -39,7 +39,7 @@ Create the following Terraform files:
 The `ibm_catalog.json` file is the key configuration file for IBM Cloud Catalog onboarding. It defines how your DA appears and behaves in the IBM Cloud Catalog. It is sometimes referred to as the `catalog manifest` or just `manifest`.
 
 **📖 For detailed step-by-step instructions on creating this file, see:**
-[Creating an ibm_catalog.json File from Scratch](https://github.com/IBM/da-bootstrap/blob/main/topics/creating-ibm-catalog-json.md)
+[Creating an ibm_catalog.json File from Scratch](https://github.com/IBM/da-bootstrap/blob/main/topics/Creating_ibm_catalog_json.md)
 
 ### Key Components:
 - Product metadata (name, description, tags, keywords)
@@ -152,7 +152,7 @@ terraform apply
 
 ## Additional Resources
 
-- [Creating ibm_catalog.json - Step-by-Step Guide](https://github.com/IBM/da-bootstrap/blob/main/topics/creating-ibm-catalog-json.md)
+- [Creating ibm_catalog.json - Step-by-Step Guide](https://github.com/IBM/da-bootstrap/blob/main/topics/Creating_ibm_catalog_json.md)
 - [IBM Cloud Catalog Management API](https://cloud.ibm.com/apidocs/resource-catalog/private-catalog)
 - [Deployable Architecture Documentation](https://cloud.ibm.com/docs/secure-enterprise)
 - [Terraform IBM Cloud Provider](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs)
