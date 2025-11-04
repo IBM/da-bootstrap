@@ -10,7 +10,7 @@
    - Add `name`: Unique identifier (lowercase, hyphens)
    - Add `label`: Display name for the catalog
    - Set `product_kind`: Use `"solution"` for deployable architectures
-   - Add `tags`: Array of relevant tags (e.g., `["network", "network_vpc"]`)
+   - Add `tags`: Array of relevant tags (e.g., `["network", "watson"]`) that determine the DAs catalog category.  See the command `ibmcloud catalog offering category-options`
    - Add `keywords`: Search terms for catalog discovery
    - Add `short_description`: Brief summary (1-2 sentences)
    - Add `long_description`: Detailed description with any disclaimers
@@ -26,7 +26,7 @@
    - Add `name`: Flavor identifier (e.g., `"basic"`, `"standard"`, `"advanced"`)
    - Add `label`: Display name for the flavor
    - Set `install_type`: Typically `"fullstack"` for complete deployments
-   - Set `working_directory`: Path to Terraform files (usually `"./"`)
+   - Set `working_directory`: Path to Terraform files within the repository (usually `"./"`)
    - Add `compliance`: Object for compliance metadata (can be empty `{}`)
 
 5. **Specify IAM Permissions**
