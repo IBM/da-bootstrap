@@ -49,13 +49,20 @@
    - Create `configuration` array for each Terraform variable
    - For each parameter, define:
      - `key`: Variable name (must match Terraform variable)
-     - `type`: Data type (`string`, `password`, `number`, `boolean`)
+     - `type`: Data type (`string`, `password`, `number`, `boolean`, `float`, `int`, `object`)
      - `default_value`: Default value (use `""` for empty, `"__NOT_SET__"` for required)
      - `description`: Parameter description
      - `display_name`: UI-friendly display name
      - `required`: Boolean indicating if parameter is required
 
 8. **Add Custom UI Widgets (Optional)**
+   - **Note**: Custom UI widgets are **optional** for basic input types (`boolean`, `float`, `int`, `number`, `password`, `string`, `object`)
+   - Basic types will render with standard UI controls:
+     - `string`: Text input field
+     - `password`: Password input field (masked)
+     - `number`, `int`, `float`: Numeric input field
+     - `boolean`: Checkbox or toggle
+     - `object`: JSON editor or structured input
    - For enhanced UI controls, add `custom_config` to parameters
    - Set `type`: Widget type (e.g., `"vpc_region"`, `"resource_group"`, `"ssh_key"`)
    - Set `grouping`: UI section grouping (e.g., `"deployment"`)
@@ -65,6 +72,13 @@
      - `resource_group`: Resource group dropdown
      - `ssh_key`: SSH key selector
      - `subnet`: Subnet selector
+     - `vpc`: VPC selector
+     - `security_group`: Security group selector
+   - **When to use custom widgets**:
+     - When you need dynamic dropdowns populated from IBM Cloud resources
+     - When you want to enforce specific constraints or validation
+     - When you need dependent field behavior (e.g., subnets filtered by VPC)
+     - When you want to improve user experience with guided selection
 
 9. **Validate the JSON**
    - Verify JSON syntax is valid (use a JSON validator)
@@ -85,10 +99,11 @@
 - **Naming conventions**: Use lowercase with hyphens for IDs
 - **Security**: Mark sensitive inputs as `type: "password"`
 - **Defaults**: Provide sensible defaults where possible
-- **Grouping**: Use `custom_config.grouping` to organize UI sections
+- **Grouping**: Use `custom_config.grouping` to organize UI sections (optional but recommended)
 - **Documentation**: Link to comprehensive docs in `offering_docs_url`
 - **Versioning**: Update SHA hashes when diagrams change
 - **Testing**: Always test in a private catalog before going public
+- **Widget usage**: Only add custom widgets when they provide value over standard inputs
 
 ## Required Files
 
@@ -100,7 +115,7 @@ Along with `ibm_catalog.json`, you need:
 4. Optional: `version.tf` for provider versions
 5. Optional: `outputs.tf` for output values
 
-## Example Minimal Structure
+## Example Minimal Structure (Without Custom Widgets)
 
 ```json
 {
@@ -149,8 +164,33 @@ Along with `ibm_catalog.json`, you need:
                         {
                             "key": "api_key",
                             "type": "password",
-                            "description": "API key",
+                            "description": "API key for authentication",
+                            "display_name": "API Key",
                             "required": true
+                        },
+                        {
+                            "key": "cluster_name",
+                            "type": "string",
+                            "description": "Name of the cluster",
+                            "display_name": "Cluster Name",
+                            "default_value": "my-cluster",
+                            "required": true
+                        },
+                        {
+                            "key": "worker_count",
+                            "type": "number",
+                            "description": "Number of worker nodes",
+                            "display_name": "Worker Count",
+                            "default_value": 3,
+                            "required": true
+                        },
+                        {
+                            "key": "enable_monitoring",
+                            "type": "boolean",
+                            "description": "Enable monitoring for the cluster",
+                            "display_name": "Enable Monitoring",
+                            "default_value": false,
+                            "required": false
                         }
                     ]
                 }
@@ -159,6 +199,143 @@ Along with `ibm_catalog.json`, you need:
     ]
 }
 ```
+
+## Example with Optional Custom Widgets
+
+```json
+{
+    "products": [
+        {
+            "name": "my-solution",
+            "label": "My Solution",
+            "product_kind": "solution",
+            "tags": ["category"],
+            "keywords": ["keyword"],
+            "short_description": "Brief description",
+            "long_description": "Detailed description",
+            "offering_docs_url": "https://docs.example.com",
+            "offering_icon_url": "data:image/svg+xml;base64,...",
+            "flavors": [
+                {
+                    "name": "basic",
+                    "label": "Basic",
+                    "install_type": "fullstack",
+                    "working_directory": "./",
+                    "compliance": {},
+                    "iam_permissions": [
+                        {
+                            "service_name": "service.name",
+                            "role_crns": [
+                                "crn:v1:bluemix:public:iam::::role:Administrator"
+                            ]
+                        }
+                    ],
+                    "architecture": {
+                        "diagrams": [
+                            {
+                                "diagram": {
+                                    "url_proxy": {
+                                        "url": "https://path/to/diagram.svg",
+                                        "sha": "sha256hash"
+                                    },
+                                    "caption": "Architecture",
+                                    "type": "image/svg+xml"
+                                },
+                                "description": "Architecture description"
+                            }
+                        ]
+                    },
+                    "configuration": [
+                        {
+                            "key": "api_key",
+                            "type": "password",
+                            "description": "API key for authentication",
+                            "display_name": "API Key",
+                            "required": true
+                        },
+                        {
+                            "key": "cluster_name",
+                            "type": "string",
+                            "description": "Name of the cluster",
+                            "display_name": "Cluster Name",
+                            "default_value": "my-cluster",
+                            "required": true
+                        },
+                        {
+                            "key": "region",
+                            "type": "string",
+                            "description": "IBM Cloud region",
+                            "display_name": "Region",
+                            "required": true,
+                            "custom_config": {
+                                "type": "vpc_region",
+                                "grouping": "deployment",
+                                "config_constraints": {
+                                    "generationFilter": "2"
+                                }
+                            }
+                        },
+                        {
+                            "key": "resource_group_id",
+                            "type": "string",
+                            "description": "Resource group ID",
+                            "display_name": "Resource Group",
+                            "required": true,
+                            "custom_config": {
+                                "type": "resource_group",
+                                "grouping": "deployment"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
+
+## Comparison: Standard vs Custom Widgets
+
+### Standard Input (No Custom Widget)
+```json
+{
+    "key": "cluster_name",
+    "type": "string",
+    "description": "Name of the cluster",
+    "display_name": "Cluster Name",
+    "default_value": "my-cluster",
+    "required": true
+}
+```
+**Result**: Simple text input field where users type the cluster name
+
+### Custom Widget Input
+```json
+{
+    "key": "region",
+    "type": "string",
+    "description": "IBM Cloud region",
+    "display_name": "Region",
+    "required": true,
+    "custom_config": {
+        "type": "vpc_region",
+        "grouping": "deployment",
+        "config_constraints": {
+            "generationFilter": "2"
+        }
+    }
+}
+```
+**Result**: Dropdown populated with available VPC regions, filtered by generation
+
+## Best Practices
+
+1. **Start Simple**: Begin with standard input types and add custom widgets only where needed
+2. **User Experience**: Use custom widgets for complex selections (regions, resource groups, VPCs)
+3. **Validation**: Leverage custom widgets for built-in validation and constraints
+4. **Documentation**: Provide clear descriptions for all parameters, regardless of widget type
+5. **Testing**: Test both with and without custom widgets to ensure fallback behavior works
+6. **Grouping**: Use `grouping` in `custom_config` to organize related parameters, even for standard inputs
 
 ## Additional Resources
 
