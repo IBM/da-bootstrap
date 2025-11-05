@@ -24,7 +24,6 @@ Before onboarding, ensure your DA repository contains all required files:
 
 ### 📖 Reference Guides
 If you haven't created these files yet, refer to:
-- [DA Creation Guide](https://github.com/IBM/da-bootstrap/blob/main/guides/DA_Creation_Guide.md) - Complete DA creation steps
 - [Creating ibm_catalog.json](https://github.com/IBM/da-bootstrap/blob/main/guides/Creating_ibm_catalog_json.md) - Detailed catalog manifest guide
 
 ## Pre-Onboarding Validation
@@ -442,7 +441,6 @@ terraform fmt -recursive
 ## Additional Resources
 
 ### IBM DA Bootstrap Resources
-- **[DA Creation Guide](https://github.com/IBM/da-bootstrap/blob/main/guides/DA_Creation_Guide.md)** - Complete guide to creating a DA
 - **[Creating ibm_catalog.json](https://github.com/IBM/da-bootstrap/blob/main/guides/Creating_ibm_catalog_json.md)** - Detailed catalog manifest guide
 - **[IBM DA Bootstrap Repository](https://github.com/IBM/da-bootstrap)** - Templates and examples
 
