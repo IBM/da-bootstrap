@@ -1,6 +1,10 @@
-# Creating an ibm_catalog.json File from Scratch - Complete Guide
+# How to create a Deployable Architecture
 
-## Step-by-Step Guide
+A Deployable Architecture (DA) is composed of multiple parts.  It is composed of terraform code and a json file named ibm_catalog.json also commonly called the 
+Catalog manifest file.  This guide provides a step by step guide for creating the manifest file.  Best practices for creating the terraform code is 
+covered in a separate guide.
+
+## Step-by-Step Guide to create DA manifest
 
 1. **Create the Base Structure**
    - Start with the root JSON object containing a `products` array
