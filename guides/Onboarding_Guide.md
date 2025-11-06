@@ -1,7 +1,9 @@
-# Onboarding a Deployable Architecture to IBM Cloud Catalog
+# Onboarding a Deployable Architecture
 
 ## Overview
-This guide provides step-by-step instructions for onboarding a Deployable Architecture (DA) to the IBM Cloud Catalog. It assumes you have already created your DA following the recommended practices.
+This guide provides step-by-step instructions for onboarding/creating a tile in a private catalog on the IBM Cloud.  It assumes you have already created your automation following the recommended practices and
+that you have already created your catalog manifest file using the steps [found in this guide](https://github.com/IBM/da-bootstrap/blob/main/guides/How_to_create_a_DA.md).  Tiles in private catalogs 
+maybe shared to additional IBM Cloud accounts and published to the IBM Cloud Catalog.
 
 ## Prerequisites
 
@@ -9,7 +11,7 @@ Before onboarding, ensure your DA repository contains all required files:
 
 ### ✅ Required Files Checklist
 - **ibm_catalog.json** - Catalog manifest defining your DA
-- **Terraform Configuration Files**:
+- **Terraform Configuration Files** - This is your DA's automation :
   - `main.tf` - Core infrastructure resources
   - `variables.tf` - Input variable definitions
   - `outputs.tf` - Output value definitions
@@ -18,13 +20,12 @@ Before onboarding, ensure your DA repository contains all required files:
 - **Architecture Diagram** - SVG file in `/diagrams/` directory
 - **Documentation**:
   - `README.md` - Project overview and usage
-  - `DEPLOYMENT_GUIDE.md` - Deployment instructions (optional but recommended)
 - **Icon** - `icon.svg` or base64-encoded icon in ibm_catalog.json
-- **IBM Cloud Account** - With appropriate permissions to create catalogs
+- **IBM Cloud Account** - With appropriate permissions to create a catalog if just starting or with edit permission to use an existing private catalog.
 
 ### 📖 Reference Guides
 If you haven't created these files yet, refer to:
-- [Creating ibm_catalog.json](https://github.com/IBM/da-bootstrap/blob/main/guides/Creating_ibm_catalog_json.md) - Detailed catalog manifest guide
+- [Creating ibm_catalog.json](https://github.com/IBM/da-bootstrap/blob/main/guides/How_to_create_a_DA.md) - Detailed catalog manifest guide
 
 ## Pre-Onboarding Validation
 
@@ -74,7 +75,7 @@ shasum -a 256 diagrams/architecture.svg
 
 ## Onboarding Steps
 
-### Step 1: Create a Private Catalog
+### Step 1: Create a Private Catalog if you do not already have one
 
 Start with a private catalog for testing before publishing publicly.
 
