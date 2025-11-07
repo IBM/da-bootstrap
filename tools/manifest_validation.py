@@ -76,7 +76,7 @@ class CatalogValidator:
     def _validate_products(self):
         """Validate product-level fields"""
         required_fields = ['name', 'label', 'product_kind', 'short_description', 
-                          'long_description', 'offering_docs_url', 'provider_name']
+                        'long_description', 'offering_docs_url', 'provider_name']
         
         for idx, product in enumerate(self.catalog_data.get('products', [])):
             product_name = product.get('name', f'Product {idx}')
