@@ -15,7 +15,7 @@ covered in a separate guide.
    - Add `label`: Display name for the catalog
    - Set `product_kind`: Use `"solution"` for deployable architectures
    - Add `provider_name`: Provider attribution (e.g., "IBM")
-   - Add `tags`: Array of relevant tags (e.g., `["network", "watson"]`) that determine the DAs catalog category. See the command `ibmcloud catalog offering category-options`
+   - Add `tags`: Array of relevant tags but limited to a defined list of permitted values.  The current list of permitted tags may be found in the "tags" array within each entry in the json file [categories.json](https://github.com/IBM/da-bootstrap/blob/main/data/categories.json) .
    - Add `keywords`: Search terms for catalog discovery
    - Add `short_description`: Brief summary (1-2 sentences)
    - Add `long_description`: Detailed description with any disclaimers

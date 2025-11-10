@@ -10,14 +10,16 @@ import json
 import sys
 import re
 from pathlib import Path
-from typing import Dict, List, Tuple, Any
+from typing import Dict, List, Tuple, Any, Set
 
 class CatalogValidator:
-    def __init__(self, catalog_path: str):
+    def __init__(self, catalog_path: str, categories_path: str | None = None):
         self.catalog_path = Path(catalog_path)
+        self.categories_path = categories_path
         self.errors = []
         self.warnings = []
         self.catalog_data = None
+        self.valid_tags: Set[str] = set()
         
     def validate(self) -> bool:
         """Run all validation checks"""
@@ -28,6 +30,10 @@ class CatalogValidator:
         # Load and parse JSON
         if not self._load_json():
             return False
+        
+        # Load valid tags from categories.json if path provided
+        if self.categories_path:
+            self._load_valid_tags()
             
         # Run validation checks
         self._validate_structure()
@@ -41,6 +47,38 @@ class CatalogValidator:
         self._print_results()
         
         return len(self.errors) == 0
+    
+    def _load_valid_tags(self):
+        """Load valid tags from categories.json file"""
+        if not self.categories_path:
+            return
+            
+        try:
+            categories_file = Path(self.categories_path)
+            with open(categories_file, 'r') as f:
+                categories_data = json.load(f)
+            
+            # Extract all tags from categories
+            for category in categories_data:
+                if 'tags' in category and isinstance(category['tags'], list):
+                    self.valid_tags.update(category['tags'])
+                
+                # Also check children categories
+                if 'children' in category and isinstance(category['children'], list):
+                    for child in category['children']:
+                        if 'tags' in child and isinstance(child['tags'], list):
+                            self.valid_tags.update(child['tags'])
+            
+            print(f"✅ Loaded {len(self.valid_tags)} valid tags from categories file")
+        except FileNotFoundError:
+            self.warnings.append(f"Categories file not found: {self.categories_path}")
+            print(f"⚠️  Categories file not found: {self.categories_path}")
+        except json.JSONDecodeError as e:
+            self.warnings.append(f"Invalid JSON in categories file: {e}")
+            print(f"⚠️  Invalid JSON in categories file: {e}")
+        except Exception as e:
+            self.warnings.append(f"Error loading categories file: {e}")
+            print(f"⚠️  Error loading categories file: {e}")
     
     def _load_json(self) -> bool:
         """Load and parse JSON file"""
@@ -76,7 +114,7 @@ class CatalogValidator:
     def _validate_products(self):
         """Validate product-level fields"""
         required_fields = ['name', 'label', 'product_kind', 'short_description', 
-                        'long_description', 'offering_docs_url', 'provider_name']
+                          'long_description', 'offering_docs_url', 'provider_name']
         
         for idx, product in enumerate(self.catalog_data.get('products', [])):
             product_name = product.get('name', f'Product {idx}')
@@ -98,6 +136,9 @@ class CatalogValidator:
             # Check tags
             if 'tags' in product and isinstance(product['tags'], list):
                 print(f"  ✅ Tags: {len(product['tags'])} tag(s)")
+                # Validate tags against valid tags list if available
+                if self.valid_tags:
+                    self._validate_product_tags(product['tags'], product_name)
             else:
                 self.warnings.append(f"Product '{product_name}': No tags defined")
             
@@ -112,6 +153,19 @@ class CatalogValidator:
                 self.warnings.append(f"Product '{product_name}': No offering_icon_url defined")
             else:
                 print(f"  ✅ Icon URL defined")
+    
+    def _validate_product_tags(self, tags: List[str], product_name: str):
+        """Validate product tags against valid tags list"""
+        invalid_tags = []
+        for tag in tags:
+            if tag not in self.valid_tags:
+                invalid_tags.append(tag)
+        
+        if invalid_tags:
+            self.errors.append(f"Product '{product_name}': Invalid tags found: {invalid_tags}")
+            print(f"    ❌ Invalid tags: {invalid_tags}")
+        else:
+            print(f"    ✅ All tags are valid")
     
     def _validate_flavors(self):
         """Validate flavor configurations"""
@@ -278,11 +332,20 @@ class CatalogValidator:
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python validate_catalog.py <path_to_ibm_catalog.json>")
+        print("Usage: python validate_catalog.py <path_to_ibm_catalog.json> [path_to_categories.json]")
         sys.exit(1)
     
     catalog_path = sys.argv[1]
-    validator = CatalogValidator(catalog_path)
+    categories_path = sys.argv[2] if len(sys.argv) > 2 else None
+    
+    # If no categories path provided, try to find it relative to the script
+    if not categories_path:
+        script_dir = Path(__file__).parent
+        default_categories_path = script_dir.parent / "data" / "categories.json"
+        if default_categories_path.exists():
+            categories_path = str(default_categories_path)
+    
+    validator = CatalogValidator(catalog_path, categories_path)
     
     success = validator.validate()
     sys.exit(0 if success else 1)
