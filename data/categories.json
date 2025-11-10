@@ -1,0 +1,1212 @@
+[
+    {
+        "customization_category": "software",
+        "description": {
+            "de": "Machine Learning-Modelle erstellen, trainieren und bereitstellen",
+            "en": "Build, train and deploy machine learning models",
+            "es": "Cree, entrene y despliegue los modelos de aprendizaje automático",
+            "fr": "Créez, formez et déployez des modèles d'apprentissage automatique",
+            "it": "Crea, prepara e distribuisci i modelli di machine learning",
+            "ja": "機械学習モデルのビルド、トレーニング、およびデプロイ",
+            "ko": "머신 러닝 모델 빌드, 교육 및 배치",
+            "pt-BR": "Desenvolva, treine e implemente modelos de aprendizado de máquina",
+            "zh-Hans": "构建、训练和部署机器学习模型",
+            "zh-Hant": "建置、訓練及部署機器學習模型"
+        },
+        "display_name": {
+            "de": "AI / Machine Learning",
+            "en": "AI / Machine Learning",
+            "es": "IA / Aprendizaje automático",
+            "fr": "IA / Apprentissage automatique",
+            "it": "IA/Machine Learning",
+            "ja": "AI/機械学習",
+            "ko": "AI/기계 학습",
+            "pt-BR": "IA/Aprendizado de máquina",
+            "zh-Hans": "AI/机器学习",
+            "zh-Hant": "AI / 機器學習"
+        },
+        "exclude_tags": [
+            "softlayer"
+        ],
+        "icon": "fade",
+        "id": "ai",
+        "tags": [
+            "watson",
+            "ai"
+        ]
+    },
+    {
+        "customization_category": "software",
+        "description": {
+            "de": "Zentrale Datenservices; unbegrenzte Möglichkeiten",
+            "en": "Essential data services; limitless possibilities.",
+            "es": "Datos y servicios esenciales; posibilidades ilimitadas.",
+            "fr": "Des services de données essentiels ; des possibilités illimitées.",
+            "it": "Servizi di dati essenziali; possibilità illimitate.",
+            "ja": "無限の可能性を備えた重要なデータ・サービス",
+            "ko": "필수 데이터 서비스. 무한한 가능성을 제공합니다.",
+            "pt-BR": "Serviços de dados essenciais; possibilidades ilimitadas.",
+            "zh-Hans": "基本数据服务；无限可能性。",
+            "zh-Hant": "基本的資料服務；無限的可能性。"
+        },
+        "display_name": {
+            "de": "Analyse",
+            "en": "Analytics",
+            "es": "Analítica",
+            "fr": "Analyse",
+            "it": "Analytics",
+            "ja": "分析",
+            "ko": "분석",
+            "pt-BR": "Analítica",
+            "zh-Hans": "分析",
+            "zh-Hant": "分析"
+        },
+        "exclude_tags": [
+            "dev_ops",
+            "softlayer"
+        ],
+        "icon": "activity",
+        "id": "analytics",
+        "tags": [
+            "data_analytics",
+            "business_analytics",
+            "analytics"
+        ]
+    },
+    {
+        "customization_category": "software",
+        "description": {
+            "de": "Referenzmuster im Zusammenhang mit der Anwendungsentwicklung",
+            "en": "Reference patterns relevant to application development",
+            "es": "Patrones de referencia relevantes para el desarrollo de aplicaciones",
+            "fr": "Modèles de référence pertinents pour le développement d'applications",
+            "it": "Modelli di riferimento pertinenti allo sviluppo di applicazioni",
+            "ja": "アプリケーション開発に関連するリファレンスパターン",
+            "ko": "애플리케이션 개발과 관련된 참조 패턴",
+            "pt-BR": "Padrões de referência relevantes para o desenvolvimento de aplicações",
+            "zh-Hans": "与应用程序开发相关的参考模式",
+            "zh-Hant": "與應用程式開發相關的參考模式"
+        },
+        "display_name": {
+            "de": "Anwendungsentwicklung",
+            "en": "Application development",
+            "es": "Desarrollo de aplicaciones",
+            "fr": "Développement d'applications",
+            "it": "Sviluppo di applicazioni",
+            "ja": "アプリケーション開発",
+            "ko": "애플리케이션 개발",
+            "pt-BR": "Desenvolvimento de aplicações",
+            "zh-Hans": "应用程序开发",
+            "zh-Hant": "應用程式開發"
+        },
+        "icon": "app_dev",
+        "id": "app_dev",
+        "scopes": [
+            "deployable-architecture"
+        ],
+        "tags": [
+            "app_dev"
+        ]
+    },
+    {
+        "customization_category": "software",
+        "description": {
+            "de": "Referenzmuster im Zusammenhang mit der Vermögensverwaltung",
+            "en": "Reference patterns relevant to asset management",
+            "es": "Patrones de referencia relevantes para la gestión de activos",
+            "fr": "Modèles de référence pertinents pour la gestion d'actifs",
+            "it": "Modelli di riferimento pertinenti alla gestione degli asset",
+            "ja": "資産管理に関連するリファレンスパターン",
+            "ko": "자산 관리와 관련된 참조 패턴",
+            "pt-BR": "Padrões de referência relevantes para a gestão de ativos",
+            "zh-Hans": "与资产管理相关的参考模式",
+            "zh-Hant": "與資產管理相關的參考模式"
+        },
+        "display_name": {
+            "de": "Vermögensverwaltung",
+            "en": "Asset management",
+            "es": "Gestión de activos",
+            "fr": "Gestion d'actifs",
+            "it": "Gestione degli asset",
+            "ja": "資産管理",
+            "ko": "자산 관리",
+            "pt-BR": "Gestão de ativos",
+            "zh-Hans": "资产管理",
+            "zh-Hant": "資產管理"
+        },
+        "icon": "asset_management",
+        "id": "asset_management",
+        "scopes": [
+            "deployable-architecture"
+        ],
+        "tags": [
+            "asset_management"
+        ]
+    },
+    {
+        "customization_category": "software",
+        "description": {
+            "de": "Schnelles, flexibles Erstellen, Betreiben und Erweitern von Blockchain-Lösungen.",
+            "en": "Fast, flexible way to build, operate, and grow blockchain solutions.",
+            "es": "Forma rápida y flexible de crear, operar y ampliar soluciones de blockchain.",
+            "fr": "Solutions rapides et souples pour générer, faire fonctionner et faire évoluer des blockchain.",
+            "it": "Metodo veloce e flessibile per creare, gestire e far crescere le soluzioni blockchain.",
+            "ja": "ブロックチェーン・ソリューションを、素早く柔軟にビルド、操作、拡張します",
+            "ko": "블록체인 솔루션을 빌드하고, 운영하고, 확장시킬 수 있는 빠르고 유연한 방법입니다.",
+            "pt-BR": "Forma rápida e flexível de construir, operar e desenvolver soluções de blockchain.",
+            "zh-Hans": "提供快速灵活的方式构建、运行和扩展区块链解决方案。",
+            "zh-Hant": "快速、有彈性地建置、運作及發展區塊鏈解決方案。"
+        },
+        "display_name": {
+            "de": "Blockchain",
+            "en": "Blockchain",
+            "es": "Blockchain",
+            "fr": "Blockchain",
+            "it": "Blockchain",
+            "ja": "Blockchain",
+            "ko": "Blockchain",
+            "pt-BR": "Blockchain",
+            "zh-Hans": "Blockchain",
+            "zh-Hant": "Blockchain"
+        },
+        "exclude_tags": [
+            "softlayer"
+        ],
+        "icon": "chartNetwork",
+        "id": "blockchain",
+        "scopes": [
+            "service",
+            "software",
+            "professional-service"
+        ],
+        "tags": [
+            "blockchain"
+        ]
+    },
+    {
+        "customization_category": "software",
+        "description": {
+            "de": "Business automation description",
+            "en": "Business automation description",
+            "es": "Business automation description",
+            "fr": "Business automation description",
+            "it": "Business automation description",
+            "ja": "Business automation description",
+            "ko": "Business automation description",
+            "pt-BR": "Business automation description",
+            "zh-Hans": "Business automation description",
+            "zh-Hant": "Business automation description"
+        },
+        "display_name": {
+            "de": "Geschäftsautomatisierung",
+            "en": "Business automation",
+            "es": "Automatización empresarial",
+            "fr": "Automatisation des entreprises",
+            "it": "Automazione aziendale",
+            "ja": "業務自動化",
+            "ko": "비즈니스 자동화",
+            "pt-BR": "Automação de negócios",
+            "zh-Hans": "业务自动化",
+            "zh-Hant": "業務自動化"
+        },
+        "icon": "business_automation",
+        "id": "business_automation",
+        "scopes": [
+            "deployable-architecture"
+        ],
+        "tags": [
+            "business_automation"
+        ]
+    },
+    {
+        "children": [
+            {
+                "display_name": {
+                    "de": "Virtuelle Maschinen",
+                    "en": "Virtual Machines",
+                    "es": "Máquinas virtuales",
+                    "fr": "Machines virtuelles",
+                    "it": "Macchine virtuali",
+                    "ja": "仮想マシン",
+                    "ko": "가상 머신",
+                    "pt-BR": "Máquinas virtuais",
+                    "zh-Hans": "虚拟机",
+                    "zh-Hant": "虛擬機器"
+                },
+                "id": "virtualservers",
+                "tags": [
+                    "virtualservers"
+                ]
+            },
+            {
+                "display_name": {
+                    "de": "Bare Metal Servers",
+                    "en": "Bare Metal Servers",
+                    "es": "Bare Metal Servers",
+                    "fr": "Bare Metal Servers",
+                    "it": "Bare Metal Servers",
+                    "ja": "Bare Metal Servers",
+                    "ko": "Bare Metal Servers",
+                    "pt-BR": "Bare Metal Servers",
+                    "zh-Hans": "Bare Metal Servers",
+                    "zh-Hant": "Bare Metal Servers"
+                },
+                "id": "compute_baremetal",
+                "tags": [
+                    "compute_baremetal"
+                ]
+            },
+            {
+                "display_name": {
+                    "de": "Klassische Infrastruktur",
+                    "en": "Classic infrastructure",
+                    "es": "Infraestructura clásica",
+                    "fr": "Infrastructure classique",
+                    "it": "Infrastruttura classica",
+                    "ja": "クラシック・インフラストラクチャー",
+                    "ko": "클래식 인프라",
+                    "pt-BR": "Infraestrutura clássica",
+                    "zh-Hans": "经典基础架构",
+                    "zh-Hant": "標準基礎架構"
+                },
+                "id": "compute_classic",
+                "tags": [
+                    "compute_classic"
+                ]
+            },
+            {
+                "display_name": {
+                    "de": "Serverunabhängige Rechenressourcen",
+                    "en": "Serverless Compute",
+                    "es": "Computación sin servidor",
+                    "fr": "Calcul sans serveur",
+                    "it": "Elaborazione senza server",
+                    "ja": "サーバーレス・コンピュート",
+                    "ko": "서버리스 컴퓨팅",
+                    "pt-BR": "Cálculo sem servidor",
+                    "zh-Hans": "无服务器计算",
+                    "zh-Hant": "無伺服器運算"
+                },
+                "id": "compute_serverless",
+                "tags": [
+                    "openwhisk"
+                ]
+            },
+            {
+                "display_name": {
+                    "de": "Cloud-Images",
+                    "en": "Cloud Images",
+                    "es": "Imágenes de nube",
+                    "fr": "Images cloud",
+                    "it": "Immagini cloud",
+                    "ja": "Cloud Images",
+                    "ko": "클라우드 이미지",
+                    "pt-BR": "Imagens da nuvem",
+                    "zh-Hans": "云映像",
+                    "zh-Hant": "雲端映像檔"
+                },
+                "id": "cloud_images",
+                "tags": [
+                    "content"
+                ]
+            },
+            {
+                "display_name": {
+                    "de": "Cloud Foundry",
+                    "en": "Cloud Foundry",
+                    "es": "Cloud Foundry",
+                    "fr": "Cloud Foundry",
+                    "it": "Cloud Foundry",
+                    "ja": "Cloud Foundry",
+                    "ko": "Cloud Foundry",
+                    "pt-BR": "Cloud Foundry",
+                    "zh-Hans": "Cloud Foundry",
+                    "zh-Hant": "Cloud Foundry"
+                },
+                "id": "cloud_foundry",
+                "tags": [
+                    "runtime"
+                ]
+            },
+            {
+                "default": true,
+                "display_name": {
+                    "de": "Andere",
+                    "en": "Others",
+                    "es": "Otros",
+                    "fr": "Autres",
+                    "it": "Altri",
+                    "ja": "その他",
+                    "ko": "기타",
+                    "pt-BR": "Outros",
+                    "zh-Hans": "其他",
+                    "zh-Hant": "其他"
+                },
+                "id": "others",
+                "tags": [
+                    "compute"
+                ]
+            }
+        ],
+        "customization_category": "infrastructure",
+        "description": {
+            "de": "Virtuelle Umgebungen erstellen",
+            "en": "Build your virtual environments",
+            "es": "Cree sus entornos virtuales",
+            "fr": "Construisez vos environnements virtuels",
+            "it": "Crea i tuoi ambienti virtuali",
+            "ja": "仮想環境を構築します",
+            "ko": "가상 환경 빌드",
+            "pt-BR": "Desenvolva seus ambientes virtuais",
+            "zh-Hans": "构建虚拟环境",
+            "zh-Hant": "建置您的虛擬環境"
+        },
+        "display_name": {
+            "de": "Datenverarbeitungsfunktionalität",
+            "en": "Compute",
+            "es": "Computación",
+            "fr": "Calcul",
+            "it": "Elaborazione",
+            "ja": "計算",
+            "ko": "컴퓨팅",
+            "pt-BR": "Cálculo",
+            "zh-Hans": "计算",
+            "zh-Hant": "運算"
+        },
+        "icon": "data2",
+        "id": "compute",
+        "tags": [
+            "compute",
+            "compute_classic",
+            "content",
+            "openwhisk",
+            "runtime",
+            "virtualservers",
+            "compute_baremetal"
+        ]
+    },
+    {
+        "customization_category": "infrastructure",
+        "description": {
+            "de": "Eine Methode zur Strukturierung eines IT-Systems, indem mehrere Komponenten in einem einzigen optimierten IT-Paket zusammengefasst werden, zu dessen Komponenten Server, Datenspeichereinheiten, Netzwerkkomponenten und Software für das IT-Infrastrukturmanagement, die Automatisierung und die Orchestrierung gehören können.",
+            "en": "A way of structuring an information technology (IT) system by grouping multiple components into a single optimized computing package, components of which may include servers; data storage devices; networking equipment; and software for IT infrastructure management, automation and orchestration.",
+            "es": "Una forma de estructurar un sistema de tecnología de la información (TI) agrupando múltiples componentes en un único paquete de computación optimizado, cuyos componentes pueden incluir servidores; dispositivos de almacenamiento de datos; equipos de red y software para la gestión, automatización y orquestación de infraestructuras de TI.",
+            "fr": "Méthode de structuration d'un système de technologie de l'information en regroupant plusieurs composants en un seul module informatique optimisé, dont les composants peuvent inclure des serveurs, des unités de stockage de données, des équipements réseau et des logiciels pour la gestion, l'automatisation et l'orchestration de l'infrastructure informatique.",
+            "it": "Un modo per strutturare un sistema IT (Information Technology) raggruppando più componenti in un unico pacchetto di elaborazione ottimizzato, i cui componenti possono includere server, dispositivi di storage dati, apparecchiature di rete e software per la gestione dell'infrastruttura IT, l'automazione e l'orchestrazione.",
+            "ja": "複数のコンポーネントを単一の最適化されたコンピューティング・パッケージにグループ化することにより、サーバを含むことができる情報技術 (IT) システムを構築する方法、データ記憶装置、ネットワークデバイス、およびITインフラストラクチャの管理、自動化、調整のためのソフトウェア。",
+            "ko": "여러 구성요소를 하나의 최적화된 컴퓨팅 패키지로 그룹화하여 정보 기술(IT) 시스템을 구조화하는 방법으로, 이 패키지의 구성요소에는 서버, 데이터 스토리지 장치, 네트워킹 장비 및 IT 인프라 관리, 자동화 및 오케스트레이션을 위한 소프트웨어가 포함될 수 있습니다.",
+            "pt-BR": "Uma maneira de estruturar um sistema de tecnologia da informação (TI) ao agrupar vários componentes em um único pacote de computação otimizado, cujos componentes podem incluir servidores, dispositivos de armazenamento de dados, equipamento de rede e software para gerenciamento, automação e orquestração da infraestrutura de TI.",
+            "zh-Hans": "一种通过将多个组件分组到单个优化的计算包中来构造信息技术 (IT) 系统的方法，组件可能包括：服务器；数据存储设备；网络设备；以及用于 IT 基础架构管理、自动化和编排的软件。",
+            "zh-Hant": "一種建構資訊技術 (IT) 系統的方法，將多個元件分組成單一最佳化計算套件，其中元件可能包括伺服器、資料儲存裝置、網路設備，以及用於 IT 基礎架構管理、自動化及編排的軟體。"
+        },
+        "display_name": {
+            "de": "Konvergente Infrastruktur",
+            "en": "Converged infrastructure",
+            "es": "Infraestructura convergente",
+            "fr": "Infrastructure convergente",
+            "it": "Infrastruttura convergente",
+            "ja": "コンバージド・インフラストラクチャー",
+            "ko": "컨버지드 인프라",
+            "pt-BR": "Infraestrutura convergida",
+            "zh-Hans": "融合式基础架构",
+            "zh-Hant": "聚合式基礎架構"
+        },
+        "exclude_tags": [
+            "softlayer"
+        ],
+        "icon": "converged_infra",
+        "id": "converged_infra",
+        "scopes": [
+            "deployable-architecture"
+        ],
+        "tags": [
+            "converged_infra"
+        ]
+    },
+    {
+        "customization_category": "infrastructure",
+        "description": {
+            "de": "Als ersten Schritt einen Kubernetes-Cluster erstellen oder Docker-Images in der Registry verwalten",
+            "en": "Get started by creating a Kubernetes cluster, or manage your Docker images in the registry.",
+            "es": "Empiece creando un clúster de Kubernetes o gestione las imágenes de Docker del registro.",
+            "fr": "Commencez par créer un cluster Kubernetes ou gérez vos images Docker dans le registre.",
+            "it": "Inizia creando un cluster Kubernetes o gestisci le tue immagini Docker nel registro.",
+            "ja": "Kubernetes クラスターを作成して始めるか、レジストリーの Docker イメージを管理します。",
+            "ko": "Kubernetes 클러스터를 작성하여 시작하거나 레지스트리에서 Docker 이미지를 관리하십시오.",
+            "pt-BR": "Comece criando um cluster do Kubernetes ou gerencie suas imagens do Docker no registro.",
+            "zh-Hans": "通过创建 Kubernetes 集群开始使用容器，或者管理注册表中的 Docker 映像。",
+            "zh-Hant": "藉由建立 Kubernetes 叢集或管理登錄中的 Docker 映像檔，來開始使用。"
+        },
+        "display_name": {
+            "de": "Container",
+            "en": "Containers",
+            "es": "Contenedores",
+            "fr": "Conteneurs",
+            "it": "Container",
+            "ja": "コンテナ―",
+            "ko": "컨테이너",
+            "pt-BR": "Contêineres",
+            "zh-Hans": "容器",
+            "zh-Hant": "儲存器"
+        },
+        "icon": "checkbox",
+        "id": "containers",
+        "scopes": [
+            "service",
+            "software",
+            "professional-service"
+        ],
+        "tags": [
+            "containers",
+            "clusters",
+            "registry"
+        ]
+    },
+    {
+        "customization_category": "infrastructure",
+        "description": {
+            "de": "Datenbanken, Cloudspeicher und speicherinterne Technologien nutzen, um Daten zu speichern und zu organisieren und den Zugriff zu beschleunigen",
+            "en": "Store and organize data and accelerate access using databases, cloud storage, and in-memory technologies",
+            "es": "Almacene y organice datos y acelere el acceso utilizando bases de datos, almacenamiento en la nube y tecnologías en memoria",
+            "fr": "Stockez et organisez des données et accélérez l'accès à l'aide de bases de données, de stockage en cloud et de technologies en mémoire",
+            "it": "Archivia e organizza i dati e velocizza l'accesso utilizzando i database, l'archiviazione cloud e le tecnologie in memoria",
+            "ja": "データベース、クラウド・ストレージ、およびメモリー内テクノロジーを使用して、データを保管して編成し、アクセスを加速します",
+            "ko": "데이터베이스, 클라우드 스토리지 및 인메모리 기술을 사용하여 데이터 저장 및 구성, 액세스 가속화",
+            "pt-BR": "Armazene e organize dados e acelere o acesso usando bancos de dados, armazenamento em nuvem e tecnologias contidas na memória",
+            "zh-Hans": "使用数据库、云存储和内存中技术来存储和组织数据并加速访问",
+            "zh-Hant": "儲存及組織資料，並使用資料庫、雲端儲存空間及記憶體內技術加快存取速度"
+        },
+        "display_name": {
+            "de": "Datenbanken",
+            "en": "Databases",
+            "es": "Bases de datos",
+            "fr": "Base de données",
+            "it": "Database",
+            "ja": "データベース",
+            "ko": "데이터베이스",
+            "pt-BR": "Databases",
+            "zh-Hans": "数据库",
+            "zh-Hant": "資料庫"
+        },
+        "exclude_tags": [
+            "integration",
+            "softlayer"
+        ],
+        "icon": "development",
+        "id": "databases",
+        "scopes": [
+            "service",
+            "software",
+            "professional-service"
+        ],
+        "tags": [
+            "data_management",
+            "database"
+        ]
+    },
+    {
+        "customization_category": "cloud_management",
+        "description": {
+            "de": "Moderne Entwicklungs- und Bereitstellungsprozesse implementieren",
+            "en": "Implement modern development and delivery process",
+            "es": "Implemente un proceso de desarrollo y de entrega moderno",
+            "fr": "Implémentez un processus de développement et de distribution moderne",
+            "it": "Implementa un processo di distribuzione moderno",
+            "ja": "最新の開発およびデリバリー・プロセスの実装",
+            "ko": "현대식 개발 및 전달 프로세스 구현",
+            "pt-BR": "Implemente o processo moderno de desenvolvimento e entrega",
+            "zh-Hans": "实施新式开发和交付过程",
+            "zh-Hant": "實作現代化的開發與交付處理程序"
+        },
+        "display_name": {
+            "de": "Entwicklertools",
+            "en": "Developer tools",
+            "es": "Herramientas de desarrollador",
+            "fr": "Outils de développeur de logiciel",
+            "it": "Strumenti per sviluppatori",
+            "ja": "開発者ツール",
+            "ko": "개발자 도구",
+            "pt-BR": "Ferramentas do desenvolvedor",
+            "zh-Hans": "开发人员工具",
+            "zh-Hant": "開發人員工具"
+        },
+        "exclude_tags": [
+            "softlayer"
+        ],
+        "icon": "code",
+        "id": "devops",
+        "tags": [
+            "dev_ops"
+        ]
+    },
+    {
+        "customization_category": "software",
+        "description": {
+            "de": "Paket kompatibler Produkte, die auf Unternehmen abgestimmte App-Lösungen für Informationsaustausch, Automatisierung und Agilität bereitstellen",
+            "en": "Bundle of compatible products that deliver enterprise-grade app solutions for information sharing, automation, and agility",
+            "es": "Paquete de productos compatibles que ofrecen soluciones de aplicaciones de nivel empresarial para el uso compartido de información, la automatización y la agilidad",
+            "fr": "Offre groupée de produits compatibles fournissant des solutions d'application de niveau entreprise pour le partage d'informations, l'automatisation et l'agilité",
+            "it": "Pacchetto di prodotti compatibili che forniscono soluzioni di app di livello aziendale per la condivisione delle informazioni, l'automazione e l'agilità",
+            "ja": "情報共有、自動化、および俊敏性のためのエンタープライズ・グレードのアプリケーション・ソリューションを提供する互換性のある製品のバンドル",
+            "ko": "정보 공유, 자동화 및 민첩성을 위한 엔터프라이즈급 앱 솔루션을 제공하는 호환 가능한 제품의 번들",
+            "pt-BR": "Pacote configurável de produtos compatíveis que entregam soluções de aplicativo de classificação corporativa para compartilhamento, automação e agilidade de informações",
+            "zh-Hans": "一系列兼容产品，可提供企业级应用程序解决方案，实现信息共享、自动化和敏捷性",
+            "zh-Hant": "提供企業級應用程式解決方案以實現資訊共用、自動化及敏捷性的相容產品組合"
+        },
+        "display_name": {
+            "de": "Unternehmens-\nanwendungen",
+            "en": "Enterprise applications",
+            "es": "Aplicaciones empresariales",
+            "fr": "Applications d'entreprise",
+            "it": "Applicazioni aziendali",
+            "ja": "エンタープライズ・アプリケーション",
+            "ko": "엔터프라이즈\n애플리케이션",
+            "pt-BR": "Aplicativoscorporativos",
+            "zh-Hans": "企业应用程序",
+            "zh-Hant": "企業應用程式"
+        },
+        "exclude_tags": [
+            "softlayer"
+        ],
+        "icon": "enterprise_app",
+        "id": "enterprise_app",
+        "scopes": [
+            "deployable-architecture"
+        ],
+        "tags": [
+            "enterprise_app"
+        ]
+    },
+    {
+        "customization_category": "software",
+        "description": {
+            "de": "Referenzmuster im Zusammenhang mit der Finanzdienstleistungsbranche",
+            "en": "Reference patterns relevant to the financial services industry",
+            "es": "Patrones de referencia relevantes para la industria de servicios financieros",
+            "fr": "Modèles de référence pertinents pour le secteur des services financiers",
+            "it": "Modelli di riferimento pertinenti al settore dei servizi finanziari",
+            "ja": "金融サービス業界に関連するリファレンスパターン",
+            "ko": "금융 서비스 산업과 관련된 참조 패턴",
+            "pt-BR": "Padrões de referência relevantes para o setor de serviços financeiros",
+            "zh-Hans": "与金融服务行业相关的参考模式",
+            "zh-Hant": "與金融服務行業相關的參考模式"
+        },
+        "display_name": {
+            "de": "Finanzdienstleistungen",
+            "en": "Financial services",
+            "es": "Servicios financieros",
+            "fr": "Services financiers",
+            "it": "Servizi finanziari",
+            "ja": "金融サービス",
+            "ko": "금융 서비스",
+            "pt-BR": "Serviços financeiros",
+            "zh-Hans": "金融服务",
+            "zh-Hant": "金融服務"
+        },
+        "icon": "financial_services",
+        "id": "financial_services",
+        "scopes": [
+            "deployable-architecture"
+        ],
+        "tags": [
+            "FinancialSector"
+        ]
+    },
+    {
+        "customization_category": "software",
+        "description": {
+            "de": "Referenzmuster im Zusammenhang mit der Gesundheitsbranche",
+            "en": "Reference patterns relevant to the healthcare industry",
+            "es": "Patrones de referencia relevantes para la industria de la salud",
+            "fr": "Modèles de référence pertinents pour le secteur de la santé",
+            "it": "Modelli di riferimento pertinenti al settore sanitario",
+            "ja": "医療業界に関連するリファレンスパターン",
+            "ko": "헬스케어 산업과 관련된 참조 패턴",
+            "pt-BR": "Padrões de referência relevantes para o setor de saúde",
+            "zh-Hans": "与医疗行业相关的参考模式",
+            "zh-Hant": "與醫療行業相關的參考模式"
+        },
+        "display_name": {
+            "de": "Gesundheitswesen",
+            "en": "Healthcare",
+            "es": "Asistencia médica",
+            "fr": "Santé",
+            "it": "Assistenza sanitaria",
+            "ja": "ヘルスケア",
+            "ko": "의료",
+            "pt-BR": "Assistência médica",
+            "zh-Hans": "医疗保健",
+            "zh-Hant": "醫療保健"
+        },
+        "icon": "healthcare",
+        "id": "healthcare",
+        "scopes": [
+            "deployable-architecture"
+        ],
+        "tags": [
+            "Healthcare"
+        ]
+    },
+    {
+        "customization_category": "cloud_management",
+        "description": {
+            "de": "Anwendungen in Unternehmenssysteme integrieren.",
+            "en": "Integrate your applications with enterprise systems",
+            "es": "Integre las aplicaciones con sistemas empresariales",
+            "fr": "Intégrez vos applications à des systèmes d'entreprise",
+            "it": "Integra le tue applicazioni con i sistemi aziendali",
+            "ja": "アプリケーションのエンタープライズ・システムとの統合",
+            "ko": "엔터프라이즈 시스템과 애플리케이션 통합",
+            "pt-BR": "Integre seus aplicativos aos sistemas corporativos",
+            "zh-Hans": "将应用程序与企业系统相集成",
+            "zh-Hant": "整合您的應用程式與企業系統"
+        },
+        "display_name": {
+            "de": "Integration",
+            "en": "Integration",
+            "es": "Integración",
+            "fr": "Intégration",
+            "it": "Integrazione",
+            "ja": "統合",
+            "ko": "통합",
+            "pt-BR": "Integração",
+            "zh-Hans": "集成",
+            "zh-Hant": "整合"
+        },
+        "exclude_tags": [
+            "softlayer",
+            "platform_service"
+        ],
+        "icon": "settings",
+        "id": "integration",
+        "scopes": [
+            "service",
+            "software",
+            "professional-service"
+        ],
+        "tags": [
+            "integration",
+            "api"
+        ]
+    },
+    {
+        "customization_category": "infrastructure",
+        "description": {
+            "de": "Am Aufbau des Internet of Things mitarbeiten",
+            "en": "Help build the internet of things",
+            "es": "Ayude a crear el Internet de las cosas",
+            "fr": "Facilitez la création d'Internet of Things",
+            "it": "Aiuta a creare internet delle cose",
+            "ja": "IoT 構築のヘルプ",
+            "ko": "IoT(Internet of Things) 빌드 도움",
+            "pt-BR": "Ajude a desenvolver a Internet das Coisas",
+            "zh-Hans": "帮助构建物联网",
+            "zh-Hant": "協助建置物聯網"
+        },
+        "display_name": {
+            "de": "Internet of Things",
+            "en": "Internet of Things",
+            "es": "Internet de las cosas",
+            "fr": "Internet des objets",
+            "it": "Internet of Things",
+            "ja": "モノのインターネット",
+            "ko": "Internet of Things",
+            "pt-BR": "Internet das Coisas",
+            "zh-Hans": "物联网",
+            "zh-Hant": "物聯網"
+        },
+        "exclude_tags": [
+            "softlayer"
+        ],
+        "icon": "iotPlatform",
+        "id": "iot",
+        "scopes": [
+            "service",
+            "software",
+            "professional-service"
+        ],
+        "tags": [
+            "internet_of_things"
+        ]
+    },
+    {
+        "customization_category": "software",
+        "description": {
+            "de": "Referenzmuster im Zusammenhang mit der Fertigungsindustrie",
+            "en": "Reference patterns relevant to the manufacturing industry",
+            "es": "Patrones de referencia relevantes para la industria manufacturera",
+            "fr": "Modèles de référence pertinents pour l'industrie manufacturière",
+            "it": "Modelli di riferimento pertinenti all'industria manifatturiera",
+            "ja": "製造業界に関連するリファレンスパターン",
+            "ko": "제조 산업과 관련된 참조 패턴",
+            "pt-BR": "Padrões de referência relevantes para a indústria de manufatura",
+            "zh-Hans": "与制造业相关的参考模式",
+            "zh-Hant": "與製造業相關的參考模式"
+        },
+        "display_name": {
+            "de": "Fertigung",
+            "en": "Manufacturing",
+            "es": "Fabricación",
+            "fr": "Fabrication",
+            "it": "Industria manifatturiera",
+            "ja": "製造",
+            "ko": "제조",
+            "pt-BR": "Manufatura",
+            "zh-Hans": "制造",
+            "zh-Hant": "製造"
+        },
+        "icon": "manufacturing",
+        "id": "manufacturing",
+        "scopes": [
+            "deployable-architecture"
+        ],
+        "tags": [
+            "Manufacturing"
+        ]
+    },
+    {
+        "customization_category": "cloud_management",
+        "description": {
+            "de": "Migration",
+            "en": "Migration",
+            "es": "Migración",
+            "fr": "Migration",
+            "it": "Migrazione",
+            "ja": "マイグレーション",
+            "ko": "마이그레이션",
+            "pt-BR": "Migração",
+            "zh-Hans": "迁移",
+            "zh-Hant": "移轉"
+        },
+        "display_name": {
+            "de": "Migration",
+            "en": "Migration",
+            "es": "Migración",
+            "fr": "Migration",
+            "it": "Migrazione",
+            "ja": "マイグレーション",
+            "ko": "마이그레이션",
+            "pt-BR": "Migração",
+            "zh-Hans": "迁移",
+            "zh-Hant": "移轉"
+        },
+        "icon": "integration",
+        "id": "migration_tools",
+        "tags": [
+            "migration_tools"
+        ]
+    },
+    {
+        "customization_category": "software",
+        "description": {
+            "de": "Features für Kommunikation, Benachrichtigung, Streaming-Medien und Geoortung in Apps integrieren",
+            "en": "Build communication, notification, streaming media and geolocation features into your apps",
+            "es": "Cree características de comunicación, notificación, medios de modalidad continua y características de geolocalización en las apps",
+            "fr": "Créez des fonctions de communication, de notification, de contenu multimédia en temps réel et de géolocalisation dans vos applications",
+            "it": "Crea le funzioni di comunicazione, notifica, flusso multimediale e geo-localizzazione nelle tue applicazioni.",
+            "ja": "通信、通知、ストリーミング・メディア、および地理位置情報のフィーチャーをアプリにビルドします",
+            "ko": "통신, 알림, 스트리밍 미디어 및 지리적 위치 기능을 앱에 빌드",
+            "pt-BR": "Desenvolva recursos de comunicação, notificação, fluxo de mídia e localização geográfica em seus apps",
+            "zh-Hans": "将通信、通知、流媒体和地理定位功能构建到应用程序中",
+            "zh-Hant": "在您的應用程式中內建通訊、通知、串流媒體和地理定位特性"
+        },
+        "display_name": {
+            "de": "Mobil",
+            "en": "Mobile",
+            "es": "Móvil",
+            "fr": "Application mobile",
+            "it": "Dispositivi mobili",
+            "ja": "モバイル",
+            "ko": "모바일",
+            "pt-BR": "Móvel",
+            "zh-Hans": "移动",
+            "zh-Hant": "行動式"
+        },
+        "exclude_tags": [
+            "dev_ops",
+            "compute",
+            "database",
+            "network",
+            "storage",
+            "softlayer"
+        ],
+        "icon": "mobile",
+        "id": "mobile",
+        "scopes": [
+            "service",
+            "software",
+            "professional-service"
+        ],
+        "tags": [
+            "mobile",
+            "web_and_app"
+        ]
+    },
+    {
+        "children": [
+            {
+                "display_name": {
+                    "de": "VPC-Infrastruktur",
+                    "en": "VPC infrastructure",
+                    "es": "Infraestructura de VPC",
+                    "fr": "Infrastructure de cloud privé virtuel",
+                    "it": "Infrastruttura VPC",
+                    "ja": "VPC インフラストラクチャー",
+                    "ko": "VPC 인프라",
+                    "pt-BR": "Infraestrutura de VPC",
+                    "zh-Hans": "VPC 基础架构",
+                    "zh-Hant": "VPC 基礎架構"
+                },
+                "id": "network_vpc",
+                "tags": [
+                    "network_vpc"
+                ]
+            },
+            {
+                "display_name": {
+                    "de": "Edge",
+                    "en": "Edge",
+                    "es": "Edge",
+                    "fr": "Edge",
+                    "it": "Edge",
+                    "ja": "エッジ",
+                    "ko": "Edge",
+                    "pt-BR": "Edge",
+                    "zh-Hans": "边",
+                    "zh-Hant": "Edge"
+                },
+                "id": "network_edge",
+                "tags": [
+                    "network_edge"
+                ]
+            },
+            {
+                "display_name": {
+                    "de": "Interkonnektivität",
+                    "en": "Interconnectivity",
+                    "es": "Interconectividad",
+                    "fr": "Interconnectivité",
+                    "it": "Interconnettività",
+                    "ja": "相互接続",
+                    "ko": "상호 연결성",
+                    "pt-BR": "Interconectividade",
+                    "zh-Hans": "互连",
+                    "zh-Hant": "交互連線功能"
+                },
+                "id": "network_interconnectivity",
+                "tags": [
+                    "network_interconnectivity"
+                ]
+            },
+            {
+                "display_name": {
+                    "de": "Klassische Infrastruktur",
+                    "en": "Classic infrastructure",
+                    "es": "Infraestructura clásica",
+                    "fr": "Infrastructure classique",
+                    "it": "Infrastruttura classica",
+                    "ja": "クラシック・インフラストラクチャー",
+                    "ko": "클래식 인프라",
+                    "pt-BR": "Infraestrutura clássica",
+                    "zh-Hans": "经典基础架构",
+                    "zh-Hant": "標準基礎架構"
+                },
+                "id": "network_classic",
+                "tags": [
+                    "network_classic"
+                ]
+            },
+            {
+                "default": true,
+                "display_name": {
+                    "de": "Andere",
+                    "en": "Others",
+                    "es": "Otros",
+                    "fr": "Autres",
+                    "it": "Altri",
+                    "ja": "その他",
+                    "ko": "기타",
+                    "pt-BR": "Outros",
+                    "zh-Hans": "其他",
+                    "zh-Hant": "其他"
+                },
+                "id": "others",
+                "tags": [
+                    "network"
+                ]
+            }
+        ],
+        "customization_category": "infrastructure",
+        "description": {
+            "de": "Geben Sie die Netzbestellung auf.",
+            "en": "Order network.",
+            "es": "Solicitar red.",
+            "fr": "Commandez un réseau.",
+            "it": "Ordina rete.",
+            "ja": "ネットワークを注文します。",
+            "ko": "네트워크 서비스를 주문합니다.",
+            "pt-BR": "Solicitar rede.",
+            "zh-Hans": "订购网络。",
+            "zh-Hant": "訂購網路。"
+        },
+        "display_name": {
+            "de": "Netzbetrieb",
+            "en": "Networking",
+            "es": "Redes",
+            "fr": "Utilisation du réseau",
+            "it": "Rete",
+            "ja": "ネットワーキング",
+            "ko": "네트워킹",
+            "pt-BR": "Rede",
+            "zh-Hans": "网络",
+            "zh-Hant": "網路功能"
+        },
+        "icon": "wikis",
+        "id": "network",
+        "tags": [
+            "network",
+            "network_vpc",
+            "network_classic",
+            "network_edge",
+            "network_interconnectivity"
+        ]
+    },
+    {
+        "customization_category": "cloud_management",
+        "description": {
+            "de": "Überwachung und Verfolgung von Ereignissen",
+            "en": "Monitor and track events",
+            "es": "Supervisión y seguimiento de sucesos",
+            "fr": "Surveillez et suivez les événements",
+            "it": "Monitora e traccia gli eventi",
+            "ja": "イベントのモニタリングとトラッキング",
+            "ko": "이벤트 모니터 및 추적",
+            "pt-BR": "Monitorar e controlar eventos",
+            "zh-Hans": "监视和跟踪事件",
+            "zh-Hant": "監視及追蹤事件"
+        },
+        "display_name": {
+            "de": "Beobachtbarkeit",
+            "en": "Observability",
+            "es": "Observabilidad",
+            "fr": "Observabilité",
+            "it": "Osservabilità",
+            "ja": "観測可能性",
+            "ko": "관측 가능성",
+            "pt-BR": "Observabilidade",
+            "zh-Hans": "可观察性",
+            "zh-Hant": "可觀察性"
+        },
+        "exclude_tags": [
+            "softlayer"
+        ],
+        "icon": "analytics",
+        "id": "logging_monitoring",
+        "tags": [
+            "logging_monitoring"
+        ]
+    },
+    {
+        "customization_category": "software",
+        "description": {
+            "de": "Platform engineering description",
+            "en": "Platform engineering description",
+            "es": "Platform engineering description",
+            "fr": "Platform engineering description",
+            "it": "Platform engineering description",
+            "ja": "Platform engineering description",
+            "ko": "Platform engineering description",
+            "pt-BR": "Platform engineering description",
+            "zh-Hans": "Platform engineering description",
+            "zh-Hant": "Platform engineering description"
+        },
+        "display_name": {
+            "de": "Platform engineering",
+            "en": "Platform engineering",
+            "es": "Platform engineering",
+            "fr": "Platform engineering",
+            "it": "Platform engineering",
+            "ja": "Platform engineering",
+            "ko": "Platform engineering",
+            "pt-BR": "Platform engineering",
+            "zh-Hans": "Platform engineering",
+            "zh-Hant": "Platform engineering"
+        },
+        "icon": "platform_engineering",
+        "id": "platform_engineering",
+        "scopes": [
+            "deployable-architecture"
+        ],
+        "tags": [
+            "platform_engineering"
+        ]
+    },
+    {
+        "customization_category": "cloud_management",
+        "description": {
+            "de": "Lösungen mit zuverlässiger Verschlüsselung und Konnektivität und vertrauenswürdigem Identitätsmanagement schützen",
+            "en": "Secure your solution with trustworthy encryption, identity management, and connectivity",
+            "es": "Proteja la solución con cifrado, gestión de identidades y conectividad de confianza",
+            "fr": "Sécurisez votre solution grâce à un chiffrement, une gestion des identités et une connectivité fiables",
+            "it": "Proteggi la tua soluzione con la codifica affidabile, la gestione dell'identità e la connettività",
+            "ja": "信頼できる暗号化、ID 管理、および接続で、ソリューションをセキュアにします",
+            "ko": "신뢰할 수 있는 암호화, ID 관리 및 연결을 사용하여 솔루션 보안",
+            "pt-BR": "Proteja sua solução com criptografia, gerenciamento de identidade e conectividade confiáveis",
+            "zh-Hans": "通过值得信赖的加密、身份管理和连接来保护您的解决方案",
+            "zh-Hant": "以值得信賴的加密、身分管理和連線功能，保護您的解決方案"
+        },
+        "display_name": {
+            "de": "Sicherheit",
+            "en": "Security",
+            "es": "Seguridad",
+            "fr": "sécurité",
+            "it": "Sicurezza",
+            "ja": "セキュリティー",
+            "ko": "보안",
+            "pt-BR": "Segurança",
+            "zh-Hans": "安全性",
+            "zh-Hant": "安全"
+        },
+        "icon": "ibmSecurity",
+        "id": "security",
+        "tags": [
+            "security"
+        ]
+    },
+    {
+        "children": [
+            {
+                "display_name": {
+                    "de": "Object Storage",
+                    "en": "Object Storage",
+                    "es": "Object Storage",
+                    "fr": "Object Storage",
+                    "it": "Object Storage",
+                    "ja": "Object Storage",
+                    "ko": "Object Storage",
+                    "pt-BR": "Object Storage",
+                    "zh-Hans": "Object Storage",
+                    "zh-Hant": "Object Storage"
+                },
+                "id": "storage_object",
+                "tags": [
+                    "storage_object"
+                ]
+            },
+            {
+                "display_name": {
+                    "de": "File Storage",
+                    "en": "File Storage",
+                    "es": "File Storage",
+                    "fr": "File Storage",
+                    "it": "File Storage",
+                    "ja": "File Storage",
+                    "ko": "File Storage",
+                    "pt-BR": "File Storage",
+                    "zh-Hans": "File Storage",
+                    "zh-Hant": "File Storage"
+                },
+                "id": "storage_file",
+                "tags": [
+                    "storage_file"
+                ]
+            },
+            {
+                "display_name": {
+                    "de": "Block Storage",
+                    "en": "Block Storage",
+                    "es": "Block Storage",
+                    "fr": "Block Storage",
+                    "it": "Block Storage",
+                    "ja": "Block Storage",
+                    "ko": "Block Storage",
+                    "pt-BR": "Block Storage",
+                    "zh-Hans": "Block Storage",
+                    "zh-Hant": "Block Storage"
+                },
+                "id": "storage_block",
+                "tags": [
+                    "storage_block"
+                ]
+            },
+            {
+                "display_name": {
+                    "de": "Sicherung und Datenschutz",
+                    "en": "Backup and Data Protection",
+                    "es": "Copia de seguridad y protección de datos",
+                    "fr": "Sauvegarde et protection des données",
+                    "it": "Backup e protezione dei dati",
+                    "ja": "バックアップとデータ保護",
+                    "ko": "백업 및 데이터 보호",
+                    "pt-BR": "Backup e Proteção de dados",
+                    "zh-Hans": "备份和数据保护",
+                    "zh-Hant": "備份及資料保護"
+                },
+                "id": "storage_backup",
+                "tags": [
+                    "storage_backup"
+                ]
+            },
+            {
+                "default": true,
+                "display_name": {
+                    "de": "Andere",
+                    "en": "Others",
+                    "es": "Otros",
+                    "fr": "Autres",
+                    "it": "Altri",
+                    "ja": "その他",
+                    "ko": "기타",
+                    "pt-BR": "Outros",
+                    "zh-Hans": "其他",
+                    "zh-Hant": "其他"
+                },
+                "id": "others",
+                "tags": [
+                    "storage",
+                    "storage_vpc",
+                    "storage_classic",
+                    "storage_datamovement"
+                ]
+            }
+        ],
+        "customization_category": "infrastructure",
+        "description": {
+            "de": "Bestellen Sie Speicher.",
+            "en": "Order storage.",
+            "es": "Solicitar almacenamiento.",
+            "fr": "Commandez un espace de stockage.",
+            "it": "Ordina archiviazione.",
+            "ja": "ストレージを注文します。",
+            "ko": "스토리지 서비스를 주문합니다.",
+            "pt-BR": "Solicitar armazenamento.",
+            "zh-Hans": "订购存储。",
+            "zh-Hant": "訂購儲存空間。"
+        },
+        "display_name": {
+            "de": "Speicher",
+            "en": "Storage",
+            "es": "Almacenamiento",
+            "fr": "Stockage",
+            "it": "Archiviazione",
+            "ja": "ストレージ",
+            "ko": "스토리지",
+            "pt-BR": "Armazenamento",
+            "zh-Hans": "存储器",
+            "zh-Hant": "儲存體"
+        },
+        "icon": "dataBase",
+        "id": "storage",
+        "tags": [
+            "storage",
+            "storage_vpc",
+            "storage_classic",
+            "storage_datamovement",
+            "storage_object",
+            "storage_backup",
+            "storage_block",
+            "storage_file",
+            "storage_object"
+        ]
+    }
+]
