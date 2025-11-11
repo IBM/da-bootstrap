@@ -77,16 +77,27 @@ shasum -a 256 diagrams/architecture.svg
 
 ### Step 1: Create a Private Catalog if you do not already have one
 
-Start with a private catalog for testing before publishing publicly.
+Start with a private offering catalog for testing before publishing publicly.  Use either the IBM Console UI 
+or the IBM Cloud CLI.
 
+Use the IBM Console UI
 1. Log into [IBM Cloud Console](https://cloud.ibm.com)
 2. Navigate to **Manage > Catalogs**
 3. Click **Create catalog**
 4. Provide:
+   - **Catalog type**: Select **Product** for the type of private catalog
    - **Name**: Descriptive name for your catalog
    - **Description**: Purpose of this catalog
-   - **Visibility**: Select **Private** (for testing)
+   - **Resource group**: Select the name of an existing resource group
+   - **Select template**: Choose between an empty catalog or a non-empty catalog 
 5. Click **Create**
+
+Use the IBM Cloud CLI
+1. Log into the IBM Cloud
+2. Set a target resource group.  For example:
+```ibmcloud target -g <RESOURCE_GROUP>``` where RESOURCE_GROUP is an existing resource group name.
+2. Create the catalog by specifying the name and optionally a description.  For example:
+```ibmcloud catalog create --name "DA_CATALOG"``` where DA_CATALOG is the name of your catalog.
 
 ### Step 2: Import Your DA from GitHub
 
