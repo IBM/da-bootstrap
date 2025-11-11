@@ -7,7 +7,7 @@ maybe shared to additional IBM Cloud accounts and published to the IBM Cloud Cat
 
 ## Prerequisites
 
-Before onboarding, ensure your DA repository contains all required files:
+Before onboarding, ensure your DA github repository contains all required files:
 
 ### ✅ Required Files Checklist
 - **ibm_catalog.json** - Catalog manifest defining your DA
@@ -92,7 +92,7 @@ Use the IBM Console UI
 5. Click **Create**
 
 Use the IBM Cloud CLI
-1. Log into the IBM Cloud
+1. Log into the IBM Cloud using the ibmcloud cli
 2. Set a target resource group.  For example:
 ```ibmcloud target -g <RESOURCE_GROUP>``` where RESOURCE_GROUP is an existing resource group name.
 3. Create the catalog by specifying the name and optionally a description.  For example:
@@ -100,20 +100,69 @@ Use the IBM Cloud CLI
 
 ### Step 2: Import Your DA from GitHub
 
-1. In your private catalog, click **Add offering** or **Private products > Add**
-2. Select **Import offering**
-3. Choose repository type:
-   - **Public repository** - For public GitHub repos
-   - **Private repository** - Requires GitHub personal access token
-4. Enter your **GitHub repository URL**
-   - Example: `https://github.com/your-org/your-da-repo`
-5. Select the **branch** (typically `main`)
-6. Specify **Catalog manifest path**:
-   - Usually `/ibm_catalog.json` (root of repository)
-   - Or `/path/to/ibm_catalog.json` if in subdirectory
-7. Click **Import**
+Your DA may be imported into a private offering catalog with one of two methods.  Use either the IBM Console UI 
+or the IBM Cloud CLI.  Before you begin, make sure that you update your github repository with any DA files that have changed.  Be sure that the catalog manifest, ibm_catalog.json, has been added to the repository and its up to date.  This assumes you are planning to import the DA from a git repository branch, typicaly `main`.
 
-**Note**: IBM Cloud will clone your repository and parse the ibm_catalog.json file.
+Use the IBM Console UI
+
+1. Login to the IBM Cloud console and navigate to your private catalog.
+2. In your catalog, click **Add product** if this is a new offering.
+   - Select **Deployable architecture** as the Product type
+   - Select **Terraform** as the Delivery method
+   - Choose repository type:
+      - **Public repository** - For public GitHub repos
+      - **Private repository** - Requires GitHub personal access token
+   - Enter your **GitHub repository URL** including the branch
+      - Example: `https://github.com/your-org/your-da-repo/tree/your-branch-name` (typically `main`)
+   - Select the name of your variation (flavor)
+   - Select a semantic version string, for example `0.0.1` for the Software version
+   - Select **Add product**
+3. If it is an already existing offering, click the existing offering listed in the catalog.
+   - Click **Versions**
+   - Click **Add version**
+   - Select **Terraform** as the Delivery method
+   - Choose repository type:
+      - **Public repository** - For public GitHub repos
+      - **Private repository** - Requires GitHub personal access token
+   - Enter your **GitHub repository URL** including the branch
+      - Example: `https://github.com/your-org/your-da-repo/tree/your-branch-name` (typically `main`)
+   - Select the name of your variation (flavor)
+   - Select a semantic version string, for example `0.0.1` for the Software version
+   - Select **Add version**
+
+Use the IBM Cloud CLI
+1. Log into the IBM Cloud using the ibmcloud cli
+2. If this is a new offering
+   - create the offering and initial version by using the ibmcloud cli using the `catalog offering create` command and specifying
+      - catalog id or catalog name of the private catalog
+      - the **GitHub repository URL** including the branch 
+         - Example: `https://github.com/your-org/your-da-repo/tree/your-branch-name` (typically `main`)
+      - the variation display name as the variation-label
+      - the offering name as the `name`
+      - the product-kind is `solution` for a DA
+      - the semantic version string for example `0.0.1` for the initial version
+      - `terraform` for the format-kind 
+      - `fullstack` for the install-type
+   Example: 
+```
+   ibmcloud catalog offering create --catalog "CATALOG_NAME" --zipurl GITHUB_REPO_URL --variation-label "VARIATION_NAME" --name "OFFERING_NAME" --product-kind solution --target-version SEMANTIC_VERSION --format-kind terraform --install-type fullstack
+```
+
+3. If this is an existing offering
+   - import a version of the offering by using the ibmcloud cli using the `catalog offering import-version` command and specifying 
+      - the **GitHub repository URL** including the branch 
+         - Example: `https://github.com/your-org/your-da-repo/tree/your-branch-name` (typically `main`)
+      - the semantic version string for example `0.0.1` for the initial version
+      - catalog id or catalog name of the private catalog
+      - the offering id of the existing offering.  The offering id of the existing offering may be found using the ibmcloud cli command `catalog offering list` and finding the offering in the list and retrieving its ID value.
+      - include defined configuation by specifying include-config
+      - the variation display name as the variation-label
+      - `terraform` for the format-kind 
+      - `fullstack` for the install-type
+   Example:
+```
+   ibmcloud catalog offering import-version --zipurl GITHUB_REPO_URL --target-version SEMANTIC_VERSION --catalog "CATALOG_NAME --offering CATALOG_OFFERING_ID --include-config --variation-label "VARIATION_NAME" --format-kind terraform --install-type fullstack
+```         
 
 ### Step 3: Review and Validate the Imported Offering
 
