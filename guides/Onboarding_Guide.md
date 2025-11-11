@@ -16,7 +16,6 @@ Before onboarding, ensure your DA repository contains all required files:
   - `variables.tf` - Input variable definitions
   - `outputs.tf` - Output value definitions
   - `version.tf` - Provider version constraints
-  - `terraform.tfvars.template` - Example variable values
 - **Architecture Diagram** - SVG file in `/diagrams/` directory
 - **Documentation**:
   - `README.md` - Project overview and usage
@@ -96,8 +95,8 @@ Use the IBM Cloud CLI
 1. Log into the IBM Cloud
 2. Set a target resource group.  For example:
 ```ibmcloud target -g <RESOURCE_GROUP>``` where RESOURCE_GROUP is an existing resource group name.
-2. Create the catalog by specifying the name and optionally a description.  For example:
-```ibmcloud catalog create --name "DA_CATALOG"``` where DA_CATALOG is the name of your catalog.
+3. Create the catalog by specifying the name and optionally a description.  For example:
+```ibmcloud catalog create --name "DA_CATALOG"``` where DA_CATALOG is the name of your catalog.  Note, the resource group is not specified.  The targeted resource group from step 2 will automatically be used.
 
 ### Step 2: Import Your DA from GitHub
 
