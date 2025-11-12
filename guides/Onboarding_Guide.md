@@ -330,7 +330,6 @@ After publishing to public catalog:
 
 ### Documentation Updates
 - Keep README.md current
-- Update DEPLOYMENT_GUIDE.md with new features
 - Add troubleshooting tips based on user feedback
 - Maintain accurate parameter descriptions
 
