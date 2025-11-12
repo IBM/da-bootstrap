@@ -509,6 +509,7 @@ terraform fmt -recursive
 - [Private Catalog Documentation](https://cloud.ibm.com/docs/account?topic=account-catalog-enterprise-filters)
 - [Deployable Architecture Guide](https://cloud.ibm.com/docs/secure-enterprise)
 - [IBM Cloud Catalog Management API](https://cloud.ibm.com/apidocs/resource-catalog/private-catalog)
+- [Catalog manifest](https://github.com/ibm-cloud-docs/secure-enterprise/blob/master/catalog-manifest.md)
 
 ### Terraform Resources
 - [Terraform IBM Cloud Provider](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs)
