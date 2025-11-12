@@ -597,6 +597,7 @@ covered in a separate guide.
     - Check that CRNs and service names are correct
     - Validate SHA hashes match diagram files
     - Confirm parameter keys match Terraform variable names
+    - Validate certain values using the ibm_catalog.json validate tool found at https://github.com/IBM/da-bootstrap/blob/main/tools/validate_catalog_manifest.py
     
     **Complete Validation Checklist:**
     - [ ] All required IAM permissions are listed for each flavor
