@@ -58,16 +58,7 @@ cat ibm_catalog.json | jq .
 # - products[].flavors[].configuration[]
 ```
 
-### 3. Validate Architecture Diagram
-```bash
-# Generate SHA-256 hash for your diagram
-shasum -a 256 diagrams/architecture.svg
-
-# Verify this hash matches the value in ibm_catalog.json
-# under products[].flavors[].architecture.diagrams[].diagram.url_proxy.sha
-```
-
-### 4. Verify IAM Permissions
+### 3. Verify IAM Permissions
 - Ensure all IAM role CRNs in ibm_catalog.json are correct
 - Format: `crn:v1:bluemix:public:iam::::serviceRole:Manager`
 - Verify service names match IBM Cloud service identifiers
