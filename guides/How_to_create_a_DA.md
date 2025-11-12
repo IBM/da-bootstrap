@@ -1392,6 +1392,7 @@ See the [terraform-ibm-base-ocp-vpc](https://github.com/terraform-ibm-modules/te
 
 - [IBM Cloud Catalog Management API](https://cloud.ibm.com/apidocs/resource-catalog/private-catalog)
 - [Deployable Architecture Documentation](https://cloud.ibm.com/docs/secure-enterprise)
+- [Catalog manifest](https://github.com/ibm-cloud-docs/secure-enterprise/blob/master/catalog-manifest.md)
 - [Terraform IBM Cloud Provider](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs)
 - [IBM Cloud CLI Catalog Commands](https://cloud.ibm.com/docs/cli?topic=cli-manage-catalogs-plugin)
 - [Context-Based Restrictions](https://cloud.ibm.com/docs/account?topic=account-context-restrictions-whatis)
