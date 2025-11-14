@@ -15,7 +15,8 @@ covered in a separate guide.
    - Add `label`: Display name for the catalog
    - Set `product_kind`: Use `"solution"` for deployable architectures
    - Add `provider_name`: Provider attribution (e.g., "IBM")
-   - Add `tags`: Array of relevant tags but limited to a defined list of permitted values.  The current list of permitted tags may be found in the "tags" array within each entry in the json file [categories.json](https://github.com/IBM/da-bootstrap/blob/main/data/categories.json) or it may be retrieved with the ibmcloud cli using the command `ibmcloud catalog offering category-options`.
+   - Add `tags` : The values should be one of the following:
+      ['app_dev', 'business_analytics', 'solution_docs', 'solution', 'target_terraform', 'terraform', 'reference_architecture', 'storage_classic', 'database', 'logging_monitoring', 'dev_ops', 'asset_management', 'network', 'content', 'migration_tools', 'mobile', 'storage_datamovement', 'clusters', 'ibm_created', 'blockchain', 'storage', 'analytics', 'ai', 'network_vpc', 'network_classic', 'converged_infra', 'storage_backup', 'network_edge', 'storage_object', 'business_automation', 'storage_file', 'data_analytics', 'enterprise_app', 'compute_baremetal', 'platform_engineering', 'integration', 'watson', 'Manufacturing', 'data_management', 'storage_vpc', 'network_interconnectivity', 'internet_of_things', 'registry', 'compute_classic', 'virtualservers', 'security', 'containers', 'storage_block', 'openwhisk', 'compute', 'platform_service', 'FinancialSector'] 
    - Add `keywords`: Search terms for catalog discovery
    - Add `short_description`: Brief summary (1-2 sentences)
    - Add `long_description`: Detailed description with any disclaimers
@@ -593,11 +594,14 @@ covered in a separate guide.
 
 15. **Validate the JSON**
     - Verify JSON syntax is valid (use a JSON validator)
-    - Ensure all required fields are present
+    - Ensure all required fields are present by checking that there is a top level `products` property and that `products` also contains the following:
+      ['name', 'label', 'product_kind', 'short_description', 'long_description', 'offering_docs_url', 'provider_name']
+    - The `product_kind` should be one of these values ['solution', 'module']
     - Check that CRNs and service names are correct
     - Validate SHA hashes match diagram files
     - Confirm parameter keys match Terraform variable names
-    - Validate certain values using the ibm_catalog.json validate tool found at https://github.com/IBM/da-bootstrap/blob/main/tools/validate_catalog_manifest.py
+    - Ensure that the `tags` array has valid values.  The values should be one of the following:
+      ['app_dev', 'business_analytics', 'solution_docs', 'solution', 'target_terraform', 'terraform', 'reference_architecture', 'storage_classic', 'database', 'logging_monitoring', 'dev_ops', 'asset_management', 'network', 'content', 'migration_tools', 'mobile', 'storage_datamovement', 'clusters', 'ibm_created', 'blockchain', 'storage', 'analytics', 'ai', 'network_vpc', 'network_classic', 'converged_infra', 'storage_backup', 'network_edge', 'storage_object', 'business_automation', 'storage_file', 'data_analytics', 'enterprise_app', 'compute_baremetal', 'platform_engineering', 'integration', 'watson', 'Manufacturing', 'data_management', 'storage_vpc', 'network_interconnectivity', 'internet_of_things', 'registry', 'compute_classic', 'virtualservers', 'security', 'containers', 'storage_block', 'openwhisk', 'compute', 'platform_service', 'FinancialSector']
     
     **Complete Validation Checklist:**
     - [ ] All required IAM permissions are listed for each flavor
