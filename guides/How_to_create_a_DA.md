@@ -4,8 +4,12 @@ A Deployable Architecture (DA) is composed of multiple parts.  It is composed of
 Catalog manifest file.  This guide provides a step by step guide for creating the manifest file.  Best practices for creating the terraform code is 
 covered in a separate guide.
 
-## Step-by-Step Guide to create DA manifest
+## Before you begin
+1. **Add mode 📚 DA Developer**
+  - add custom mode 📚 DA Developer to the Bob environment.  The definition of this mode may be found in the [README](https://github.com/IBM/da-bootstrap).
+  - switch to the 📚 DA Developer mode
 
+## Step-by-Step Guide to create DA manifest
 1. **Create the Base Structure**
    - Start with the root JSON object containing a `products` array
    - This is the foundation for all catalog entries
