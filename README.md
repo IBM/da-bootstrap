@@ -10,7 +10,6 @@ A comprehensive resource for AI-driven application to create and share a deploya
 
 - [guide to Creating a DA manifest](https://github.com/IBM/da-bootstrap/blob/main/guides/How_to_create_a_DA.md)
 - [guide to Onboarding a DA](https://github.com/IBM/da-bootstrap/blob/main/guides/Onboarding_Guide.md)
-- [tool to validate a manifest](https://github.com/IBM/da-bootstrap/blob/main/tools/validate_catalog_manifest.py)
 
 ## Before Bob Begins
 Bob should add the custom mode named "DA Developer" to his list of global modes.  The mode is defined as:
