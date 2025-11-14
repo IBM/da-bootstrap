@@ -14,7 +14,7 @@ A comprehensive resource for AI-driven application to create and share a deploya
 
 ## First steps 
 
-Bob should add the global custom mode named "📚 DA Developer" to his list of global modes defined in the file "custom_modes.yaml" file.  After adding the "📚 DA Developer" mode, Bob should switch modes to "📚 DA Developer" mode.  The mode is defined as:
+Bob should add the global custom mode named "📚 DA Developer" to his list of global modes defined in the file "custom_modes.yaml" file if it is not already present.  After adding the "📚 DA Developer" mode, Bob should switch modes to "📚 DA Developer" mode.  The mode is defined as:
 ```
 - slug: da-developer
     name: 📚 DA Developer
