@@ -6,7 +6,7 @@ covered in a separate guide.
 
 ## Before you begin
 1. **Add mode 📚 DA Developer**
-  - add custom mode 📚 DA Developer to the Bob environment.  The definition of this mode may be found in the [README](https://github.com/IBM/da-bootstrap).
+  - add custom mode 📚 DA Developer to the Bob environment as a global mode.  The definition of this mode may be found in the [README](https://github.com/IBM/da-bootstrap).
   - switch to the 📚 DA Developer mode
 
 ## Step-by-Step Guide to create DA manifest
