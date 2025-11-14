@@ -5,8 +5,8 @@ Catalog manifest file.  This guide provides a step by step guide for creating th
 covered in a separate guide.
 
 ## Before you begin
-1. **Add mode 📚 DA Developer**
-  - add custom mode 📚 DA Developer to the Bob environment as a global mode.  The definition of this mode may be found in the [README](https://github.com/IBM/da-bootstrap).
+1. **Use mode 📚 DA Developer**
+  - add global custom mode 📚 DA Developer to the Bob environment as a global mode.  The definition of this mode may be found in the [README](https://github.com/IBM/da-bootstrap).  Add this mode to the "custom_modes.yaml" file.
   - switch to the 📚 DA Developer mode
 
 ## Step-by-Step Guide to create DA manifest
