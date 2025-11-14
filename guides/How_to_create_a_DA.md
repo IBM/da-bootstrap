@@ -73,7 +73,10 @@ covered in a separate guide.
    - Add `release_notes_url`: Link to version-specific release notes
    - Add `terraform_version`: Specify Terraform version (e.g., "1.12.2")
    - Add `ignore_readme`: Set to `true` to hide README in catalog
-   - Add `compliance`: Object for compliance metadata (can be empty `{}`)
+   - Add `scripts`: Array to specify scripts to run before or after deployment.  It may be an empty placeholder like this `"scripts": []`
+   - Add `change_notices`: Object for communicating new, changed behavior in the DA.  It may be an empty placeholder like this `"change_notices": {}`
+   - Add `compliance`: Object for compliance metadata.  It may be an empty placeholder like this `"compliance": { }` 
+   - ADD `dependencies`: Array to specify dependent DAs.  It may be an empty placeholder like this 
    - Add `dependency_version_2`: Set to `true` if using dependencies
 
 6. **Working with Multiple Flavors**
