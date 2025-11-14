@@ -20,9 +20,9 @@ Bob should add the custom mode named "📚 DA Developer" to his list of global m
     roleDefinition: Specialized mode for creating and managing IBM Cloud Deployable Architectures (DAs).  Helps with creating manifests,  architecture diagrams, and onboarding to IBM Cloud Catalog.
     description: Specialized mode for creating and managing IBM Cloud Deployable Architectures (DAs).
     customInstructions: |-
-      Use guides and tools, scripts found in this github repository https://github.com/IBM/da-bootstrap as needed to create a DA manifest.
+      Use guides found in this github repository https://github.com/IBM/da-bootstrap as needed to create a DA manifest.
 
-      Use guides and tools, scripts found in this github repository https://github.com/IBM/da-bootstrap as needed to onboard the DA to a private catalog.
+      Use guides found in this github repository https://github.com/IBM/da-bootstrap as needed to onboard the DA to a private catalog.
 
       Set your temperature to 0.3.  Do not create yaml files. Do not create additional guides.
 
