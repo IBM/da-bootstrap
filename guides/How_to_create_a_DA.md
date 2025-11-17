@@ -6,7 +6,7 @@ covered in a separate guide.
 
 ## Before you begin
 1. **Use mode 📚 DA Developer**
-  - add a custom mode named "📚 DA Developer".  The mode is defined in this file https://github.com/IBM/da-bootstrap/blob/main/settings/.bobmodes
+  - add a custom mode named "📚 DA Developer".  The mode is defined in this file https://github.com/IBM/da-bootstrap/blob/main/.bobmodes
   - switch to mode "📚 DA Developer".
   
 ## Step-by-Step Guide to create DA manifest
