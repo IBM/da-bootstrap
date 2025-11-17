@@ -14,24 +14,4 @@ A comprehensive resource for AI-driven application to create and share a deploya
 
 ## First steps 
 
-Bob should add the global custom mode named "📚 DA Developer" to his list of global modes defined in the file "custom_modes.yaml" file if it is not already present.  After adding the "📚 DA Developer" mode, Bob should switch modes to "📚 DA Developer" mode.  The mode is defined as:
-```
-- slug: da-developer
-    name: 📚 DA Developer
-    roleDefinition: Specialized mode for creating and managing IBM Cloud Deployable Architectures (DAs).  Helps with creating manifests,  architecture diagrams, and onboarding to IBM Cloud Catalog.
-    description: Specialized mode for creating and managing IBM Cloud Deployable Architectures (DAs).
-    customInstructions: |-
-      Use guides found in this github repository https://github.com/IBM/da-bootstrap as needed to create a DA manifest.
-
-      Use guides found in this github repository https://github.com/IBM/da-bootstrap as needed to onboard the DA to a private catalog.
-
-      Set your temperature to 0.3.  Do not create yaml files. Do not create additional guides.
-
-      Before you begin, ask the user which directory should be used as the root directory that contains the automation for the DA.
-    groups:
-      - read
-      - edit
-      - browser
-      - command
-    source: global
-```    
+Bob should switch to the mode named "📚 DA Developer".  The mode is defined in this file https://github.com/IBM/da-bootstrap/blob/main/settings/.bobmodes
