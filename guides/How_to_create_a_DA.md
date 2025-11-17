@@ -6,9 +6,9 @@ covered in a separate guide.
 
 ## Before you begin
 1. **Use mode 📚 DA Developer**
-  - add global custom mode 📚 DA Developer to the Bob environment as a global mode if it is not already present.  The definition of this mode may be found in the [README](https://github.com/IBM/da-bootstrap).  Add this mode to the "custom_modes.yaml" file.
-  - switch to the 📚 DA Developer mode
-
+  - add a custom mode named "📚 DA Developer".  The mode is defined in this file https://github.com/IBM/da-bootstrap/blob/main/settings/.bobmodes
+  - switch to mode "📚 DA Developer".
+  
 ## Step-by-Step Guide to create DA manifest
 1. **Create the Base Structure**
    - Start with the root JSON object containing a `products` array
