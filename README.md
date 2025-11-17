@@ -14,4 +14,4 @@ A comprehensive resource for AI-driven application to create and share a deploya
 
 ## First steps 
 
-Bob should switch to the mode named "📚 DA Developer".  The mode is defined in this file https://github.com/IBM/da-bootstrap/blob/main/settings/.bobmodes
+Bob should switch to the mode named "📚 DA Developer".  The mode is defined in this file https://github.com/IBM/da-bootstrap/blob/main/.bobmodes
