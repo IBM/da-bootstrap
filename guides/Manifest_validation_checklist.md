@@ -95,7 +95,8 @@ For each flavor:
 For each configuration parameter:
 - [ ] Verify `key` field exists
 - [ ] Verify `type` field exists
-- [ ] Confirm `type` is one of `string`, `number`, `bool`, `list`, `map`, `object`
+- [ ] Confirm `type` is one of `boolean`, `float`, `int`, `number`, `password`, `string`, `object` or it must be one of the following `Custom types` 
+      array, textarea, vpc, vpc_region, power_iaas, power_iaas_zone, resource_group, schematics_workspace, code_editor, platform_resource, worker_node_flavors, secret_group, secret, kms_key, vpc_ssh_key
 - [ ] Report any unusual types
 
 ## Architecture Validation

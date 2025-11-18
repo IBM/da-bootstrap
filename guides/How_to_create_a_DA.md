@@ -202,7 +202,8 @@ covered in a separate guide.
    - Create `configuration` array for each Terraform variable
    - For each parameter, define:
      - `key`: Variable name (must match Terraform variable)
-     - `type`: Data type which must be one of the following `string`, `number`, `bool`, `list`, `map`, `object`
+     - `type`: Data type which must be one of the following `boolean`, `float`, `int`, `number`, `password`, `string`, `object` or it must be one of the following `Custom types` 
+          array, textarea, vpc, vpc_region, power_iaas, power_iaas_zone, resource_group, schematics_workspace, code_editor, platform_resource, worker_node_flavors, secret_group, secret, kms_key, vpc_ssh_key
      - `default_value`: Default value (use `""` for empty, `"__NOT_SET__"` for required)
      - `description`: Parameter description
      - `display_name`: UI-friendly display name
