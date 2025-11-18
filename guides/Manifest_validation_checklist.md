@@ -68,6 +68,7 @@ For each flavor:
 
 ### Install Type Validation
 - [ ] Confirm `install_type` is either 'fullstack' or 'extension'
+- [ ] Verify `install_type` appears only once within the flavor (singleton rule)
 
 ## IAM Permissions Validation
 
