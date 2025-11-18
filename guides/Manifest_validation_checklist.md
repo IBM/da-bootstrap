@@ -95,7 +95,7 @@ For each flavor:
 For each configuration parameter:
 - [ ] Verify `key` field exists
 - [ ] Verify `type` field exists
-- [ ] Validate `type` is one of: string, password, number, boolean, array, multiline
+- [ ] Confirm `type` is one of `string`, `number`, `bool`, `list`, `map`, `object`
 - [ ] Report any unusual types
 
 ## Architecture Validation

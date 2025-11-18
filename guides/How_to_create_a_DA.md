@@ -202,7 +202,7 @@ covered in a separate guide.
    - Create `configuration` array for each Terraform variable
    - For each parameter, define:
      - `key`: Variable name (must match Terraform variable)
-     - `type`: Data type (`string`, `password`, `number`, `boolean`, `float`, `int`, `object`, `array`)
+     - `type`: Data type which must be one of the following `string`, `number`, `bool`, `list`, `map`, `object`
      - `default_value`: Default value (use `""` for empty, `"__NOT_SET__"` for required)
      - `description`: Parameter description
      - `display_name`: UI-friendly display name
