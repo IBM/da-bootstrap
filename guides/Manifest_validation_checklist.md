@@ -5,6 +5,7 @@ This checklist represents the validation steps performed by the `validate_catalo
 ## Prerequisites
 
 - [ ] Locate the `ibm_catalog.json` file to validate
+- [ ] Verify that the `ibm_catalog.json` is located in the root level directory of the repository
 
 ## JSON File Validation
 

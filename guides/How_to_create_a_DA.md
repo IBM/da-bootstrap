@@ -10,6 +10,9 @@ covered in a separate guide.
   - switch to mode "📚 DA Developer".
   
 ## Step-by-Step Guide to create DA manifest
+
+The DA manifest should be created in the root level directory of the repository.
+
 1. **Create the Base Structure**
    - Start with the root JSON object containing a `products` array
    - This is the foundation for all catalog entries
@@ -66,17 +69,15 @@ covered in a separate guide.
 5. **Define Flavors Array**
    - Add `name`: Flavor identifier (e.g., `"basic"`, `"standard"`, `"advanced"`)
    - Add `label`: Display name for the flavor
-   - Add `index`: Display order (lower numbers appear first)
    - Add `short_description`: Brief flavor description
    - Set `install_type`: Typically `"fullstack"` for complete deployments
    - Set `working_directory`: Path to Terraform files within the repository (e.g., `"solutions/quickstart"` or `"./"`)
    - Add `release_notes_url`: Link to version-specific release notes
-   - Add `terraform_version`: Specify Terraform version (e.g., "1.12.2")
-   - Add `ignore_readme`: Set to `true` to hide README in catalog
+   - Add `ignore_readme`: Set to `false`.
    - Add `scripts`: Array to specify scripts to run before or after deployment.  It may be an empty placeholder like this `"scripts": []`
    - Add `change_notices`: Object for communicating new, changed behavior in the DA.  It may be an empty placeholder like this `"change_notices": {}`
    - Add `compliance`: Object for compliance metadata.  It may be an empty placeholder like this `"compliance": { }` 
-   - ADD `dependencies`: Array to specify dependent DAs.  It may be an empty placeholder like this 
+   - ADD `dependencies`: Array to specify dependent DAs.  It may be an empty placeholder like this `"dependencies": [ ]"`
    - Add `dependency_version_2`: Set to `true` if using dependencies
 
 6. **Working with Multiple Flavors**
