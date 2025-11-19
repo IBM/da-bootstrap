@@ -16,10 +16,10 @@ Before onboarding, ensure your DA github repository contains all required files:
   - `variables.tf` - Input variable definitions
   - `outputs.tf` - Output value definitions
   - `version.tf` - Provider version constraints
-- **Architecture Diagram** - SVG file in `/diagrams/` directory
+- **Architecture Diagram** - An SVG file exists in the repository and is referenced by the `ibm_catalog.json` file
 - **Documentation**:
   - `README.md` - Project overview and usage
-- **Icon** - `icon.svg` or base64-encoded icon in ibm_catalog.json
+- **Icon** - An icon file exists in the repository and is referenced by the `ibm_catalog.json` file
 - **IBM Cloud Account** - With appropriate permissions to create a catalog if just starting or with edit permission to use an existing private catalog.
 
 ### 📖 Reference Guides
