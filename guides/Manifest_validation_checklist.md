@@ -117,7 +117,7 @@ For each flavor:
 For each diagram:
 - [ ] Verify `diagram` object exists
 - [ ] Verify `url` field exists in diagram
-- [ ] Verify that the `url` references a file that exits in the repository.  If the file does not exist, generate a generic SVG formatted diagram as a placeholder.
+- [ ] Verify that the `url` references a file that exits in the repository.  The reference should be a full url of the files location in the repository and not a local reference. If the file does not exist, generate a generic SVG formatted diagram as a placeholder.
 - [ ] Check if `type` field exists in diagram
 
 ## Results Reporting
