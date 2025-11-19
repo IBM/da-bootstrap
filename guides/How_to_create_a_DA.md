@@ -156,6 +156,7 @@ The DA manifest should be created in the root level directory of the repository.
      - `type`: MIME type (e.g., `"image/svg+xml"`)
      - `description`: Detailed diagram description
    - Generate SHA hash using: `shasum -a 256 diagram.svg`
+   - Create a diagram file if necessary as a placeholder
    
    **Direct URL** (simpler):
    ```json

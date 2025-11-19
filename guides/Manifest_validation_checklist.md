@@ -41,7 +41,7 @@ For each product in the products array:
 - [ ] Count number of tags
 - [ ] Validate tags against valid tags list.  The valid tags list is :
       ['app_dev', 'business_analytics', 'solution_docs', 'solution', 'target_terraform', 'terraform', 'reference_architecture', 'storage_classic', 'database', 'logging_monitoring', 'dev_ops', 'asset_management', 'network', 'content', 'migration_tools', 'mobile', 'storage_datamovement', 'clusters', 'ibm_created', 'blockchain', 'storage', 'analytics', 'ai', 'network_vpc', 'network_classic', 'converged_infra', 'storage_backup', 'network_edge', 'storage_object', 'business_automation', 'storage_file', 'data_analytics', 'enterprise_app', 'compute_baremetal', 'platform_engineering', 'integration', 'watson', 'Manufacturing', 'data_management', 'storage_vpc', 'network_interconnectivity', 'internet_of_things', 'registry', 'compute_classic', 'virtualservers', 'security', 'containers', 'storage_block', 'openwhisk', 'compute', 'platform_service', 'FinancialSector']
-- [ ] Report any invalid tags found
+- [ ] Remove any invalid tags found
 
 ### Keywords Validation
 - [ ] Check if `keywords` array exists
@@ -50,6 +50,7 @@ For each product in the products array:
 ### Icon Validation
 - [ ] Check if `offering_icon_url` is defined
 - [ ] Verify that the URL, if used, references a file that exists within the repository
+- [ ] If the icon file is not found, generate a generic placeholder file and reference that file
 
 ## Flavor Validation
 
