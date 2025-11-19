@@ -9,7 +9,7 @@ customModes:
       - Set your temperature to 0.3.  
       - Do not create yaml files. Do not create additional guides such as a deployment guide.
       - Before you begin, ask the user which directory should be used as the root directory that contains the automation for the DA.
-      - Be sure to analyze all subdirectories underneath the root directory.
+      - Be sure to analyze all subdirectories underneath the selected root directory.
     groups:
       - read
       - edit
