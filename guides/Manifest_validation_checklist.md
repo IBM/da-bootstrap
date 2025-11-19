@@ -49,6 +49,7 @@ For each product in the products array:
 
 ### Icon Validation
 - [ ] Check if `offering_icon_url` is defined
+- [ ] Verify that the URL, if used, references a file that exists within the repository
 
 ## Flavor Validation
 
@@ -115,6 +116,7 @@ For each flavor:
 For each diagram:
 - [ ] Verify `diagram` object exists
 - [ ] Verify `url` field exists in diagram
+- [ ] Verify that the `url` references a file that exits in the repository.  If the file does not exist, generate a generic SVG formatted diagram as a placeholder.
 - [ ] Check if `type` field exists in diagram
 
 ## Results Reporting
