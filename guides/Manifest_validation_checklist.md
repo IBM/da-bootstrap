@@ -67,7 +67,7 @@ For each flavor:
 - [ ] Verify `label` field exists
 - [ ] Verify `name` field exists
 - [ ] Verify `install_type` field exists
-- [ ] Verify `working_directory` field exists
+- [ ] Verify `working_directory` field exists and is a path to the Terraform files within the repository (e.g., `"solutions/quickstart"` or `"./"`)
 
 ### Install Type Validation
 - [ ] Confirm `install_type` is either 'fullstack' or 'extension'
