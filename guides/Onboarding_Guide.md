@@ -28,9 +28,9 @@ If you haven't created these files yet, refer to:
 
 ## Pre-Onboarding Validation
 
-Before importing to IBM Cloud, validate your DA locally:
+Before importing to IBM Cloud, optionally validate your DA locally:
 
-### 1. Validate Terraform Configuration
+### 1. Optionally Validate Terraform Configuration
 ```bash
 # Navigate to your Terraform directory
 cd terraform/  # or wherever your .tf files are located
@@ -45,7 +45,7 @@ terraform validate
 terraform plan
 ```
 
-### 2. Validate ibm_catalog.json
+### 2. Optionally Validate ibm_catalog.json
 ```bash
 # Check JSON syntax
 cat ibm_catalog.json | jq .
@@ -58,7 +58,7 @@ cat ibm_catalog.json | jq .
 # - products[].flavors[].configuration[]
 ```
 
-### 3. Verify IAM Permissions
+### 3. Optionally Verify IAM Permissions
 - Ensure all IAM role CRNs in ibm_catalog.json are correct
 - Format: `crn:v1:bluemix:public:iam::::serviceRole:Manager`
 - Verify service names match IBM Cloud service identifiers
@@ -70,7 +70,7 @@ cat ibm_catalog.json | jq .
 Start with a private offering catalog for testing before publishing publicly.  Use either the IBM Console UI 
 or the IBM Cloud CLI.
 
-Use the IBM Console UI
+Use the IBM Console UI to create a catalog
 1. Log into [IBM Cloud Console](https://cloud.ibm.com)
 2. Navigate to **Manage > Catalogs**
 3. Click **Create catalog**
@@ -82,19 +82,23 @@ Use the IBM Console UI
    - **Select template**: Choose between an empty catalog or a non-empty catalog 
 5. Click **Create**
 
-Use the IBM Cloud CLI
+Use the IBM Cloud CLI to create a catalog
 1. Log into the IBM Cloud using the ibmcloud cli
 2. Set a target resource group.  For example:
 ```ibmcloud target -g <RESOURCE_GROUP>``` where RESOURCE_GROUP is an existing resource group name.
 3. Create the catalog by specifying the name and optionally a description.  For example:
 ```ibmcloud catalog create --name "DA_CATALOG"``` where DA_CATALOG is the name of your catalog.  Note, the resource group is not specified.  The targeted resource group from step 2 will automatically be used.
 
-### Step 2: Import Your DA from GitHub
+### Step 2: Push any updated files to Github
+
+If any of the files have changed, they should be pushed to the Github repository.  This would include the manifest file, icons, diagrams and any terraform files that have changed.
+
+### Step 3: Import Your DA from GitHub
 
 Your DA may be imported into a private offering catalog with one of two methods.  Use either the IBM Console UI 
 or the IBM Cloud CLI.  Before you begin, make sure that you update your github repository with any DA files that have changed.  Be sure that the catalog manifest, ibm_catalog.json, has been added to the repository and its up to date.  This assumes you are planning to import the DA from a git repository branch, typicaly `main`.
 
-Use the IBM Console UI
+Use the IBM Console UI to import your DA
 
 1. Login to the IBM Cloud console and navigate to your private catalog.
 2. In your catalog, click **Add product** if this is a new offering.
@@ -121,7 +125,8 @@ Use the IBM Console UI
    - Select a semantic version string, for example `0.0.1` for the Software version
    - Select **Add version**
 
-Use the IBM Cloud CLI
+Use the IBM Cloud CLI to import your DA
+
 1. Log into the IBM Cloud using the ibmcloud cli
 2. If this is a new offering
    - create the offering and initial version by using the ibmcloud cli using the `catalog offering create` command and specifying
@@ -155,7 +160,7 @@ Use the IBM Cloud CLI
    ibmcloud catalog offering import-version --zipurl GITHUB_REPO_URL --target-version SEMANTIC_VERSION --catalog "CATALOG_NAME --offering CATALOG_OFFERING_ID --include-config --variation-label "VARIATION_NAME" --format-kind terraform --install-type fullstack
 ```         
 
-### Step 3: Review and Validate the Imported Offering
+### Step 4: Review and Validate the Imported Offering
 
 After import, IBM Cloud displays your DA configuration:
 
@@ -193,7 +198,7 @@ After import, IBM Cloud displays your DA configuration:
 3. Return to IBM Cloud Catalog
 4. Click **Update from repository** to re-import
 
-### Step 4: Configure Version Details
+### Step 5: Configure Version Details
 
 1. Click on your imported offering
 2. Navigate to **Version** tab
@@ -204,7 +209,7 @@ After import, IBM Cloud displays your DA configuration:
    - **Compliance** information (if applicable)
 4. Save changes
 
-### Step 5: Validate Deployment
+### Step 6: Validate Deployment
 
 Test your DA thoroughly before sharing or publishing:
 
@@ -246,7 +251,7 @@ IBM Cloud will:
 - Different regions (if multi-region support)
 - Edge cases and error conditions
 
-### Step 6: Share with Team (Optional)
+### Step 7: Share with Team (Optional)
 
 Before publishing publicly, share with your team for testing:
 
@@ -266,7 +271,7 @@ Before publishing publicly, share with your team for testing:
 - ✅ Parameters are intuitive
 - ✅ No confusion about configuration options
 
-### Step 7: Publish to Public Catalog (Optional)
+### Step 8: Publish to Public Catalog (Optional)
 
 Once thoroughly tested, you can publish to the public IBM Cloud Catalog:
 
