@@ -133,7 +133,7 @@ Use the IBM Cloud CLI to import your DA
 2. If this is a new offering
    - create the offering and initial version by using the ibmcloud cli using the `catalog offering create` command and specifying
       - catalog id or catalog name of the private catalog
-      - the **GitHub repository URL** including the branch 
+      - the **GitHub web url** which should also include the current branch
          - Example: `https://github.com/your-org/your-da-repo/tree/your-branch-name` (typically `main`)
       - the variation display name as the variation-label
       - the offering name as the `name`
@@ -148,7 +148,7 @@ Use the IBM Cloud CLI to import your DA
 
 3. If this is an existing offering
    - import a version of the offering by using the ibmcloud cli using the `catalog offering import-version` command and specifying 
-      - the **GitHub repository URL** including the branch 
+      - the **GitHub web url** which should also include the current branch
          - Example: `https://github.com/your-org/your-da-repo/tree/your-branch-name` (typically `main`)
       - the semantic version string for example `0.0.1` for the initial version
       - catalog id or catalog name of the private catalog
