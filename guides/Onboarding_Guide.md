@@ -11,12 +11,13 @@ Before onboarding, ensure your DA github repository contains all required files:
 
 ### ✅ Required Files Checklist
 - **ibm_catalog.json** - Catalog manifest defining your DA
-- **Terraform Configuration Files** - This is your DA's automation :
-   Typically these are terraform files.  An example list is shown below.  These may vary but at least one terraform file should exists.
+- - **Terraform Configuration Files** - This is your DA's automation:
+   Your DA requires at least one Terraform file (`.tf` extension). The specific files and their organization can vary based on your implementation needs. Common examples include:
   - `main.tf` - Core infrastructure resources
   - `variables.tf` - Input variable definitions
   - `outputs.tf` - Output value definitions
   - `version.tf` - Provider version constraints
+  Note: These filenames are examples only. Your DA may use different names, a different file structure, or even a single consolidated `.tf` file.
 - **Architecture Diagram** - An SVG file exists in the repository and is referenced by the `ibm_catalog.json` file
 - **Documentation**:
   - `README.md` - Project overview and usage
