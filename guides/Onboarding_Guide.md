@@ -109,7 +109,7 @@ Use the IBM Console UI to import your DA
    - Choose repository type:
       - **Public repository** - For public GitHub repos
       - **Private repository** - Requires GitHub personal access token
-   - Enter your **GitHub repository URL** including the branch
+   - Enter your **GitHub web url** which should also include the current branch
       - Example: `https://github.com/your-org/your-da-repo/tree/your-branch-name` (typically `main`)
    - Select the name of your variation (flavor)
    - Select a semantic version string, for example `0.0.1` for the Software version
@@ -121,7 +121,7 @@ Use the IBM Console UI to import your DA
    - Choose repository type:
       - **Public repository** - For public GitHub repos
       - **Private repository** - Requires GitHub personal access token
-   - Enter your **GitHub repository URL** including the branch
+   - Enter your **GitHub web url** which should also include the current branch
       - Example: `https://github.com/your-org/your-da-repo/tree/your-branch-name` (typically `main`)
    - Select the name of your variation (flavor)
    - Select a semantic version string, for example `0.0.1` for the Software version
