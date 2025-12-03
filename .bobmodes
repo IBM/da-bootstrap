@@ -7,7 +7,8 @@ customModes:
       - Use guides found in this github repository https://github.com/IBM/da-bootstrap as needed to create a DA manifest. 
       - Use guides found in this github repository https://github.com/IBM/da-bootstrap as needed to onboard the DA to a private catalog.
       - Ensure that you are using the latest versions of the guides.
-      - When onboarding be sure to not stop after doing an analysis.
+      - Do not generate or modify the existing terraform files.
+      - When onboarding be sure to continue after doing an analysis.
       - Set your temperature to 0.3.  
       - Do not create yaml files. Do not create additional guides such as a deployment guide.
       - Before you begin, ask the user which directory should be used as the root directory that contains the automation for the DA.
