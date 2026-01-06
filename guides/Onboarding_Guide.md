@@ -98,6 +98,8 @@ If any of the files have changed, they should be pushed to the Github repository
 Your DA may be imported into a private offering catalog with one of two methods.  Use either the IBM Console UI 
 or the IBM Cloud CLI.  Before you begin, make sure that you update your github repository with any DA files that have changed.  Be sure that the catalog manifest, ibm_catalog.json, has been added to the repository and its up to date.  This assumes you are planning to import the DA from a git repository branch, typicaly `main`.
 
+The Github url may either be a url to a github branch or it may be the url to a github release of the repository.  Onboarding local files is not supported.
+
 Use the IBM Console UI to import your DA
 
 1. Login to the IBM Cloud console and navigate to your private catalog.
@@ -245,24 +247,24 @@ IBM Cloud will:
 - ✅ Resources function as expected
 - ✅ Resources can be destroyed cleanly
 
-**Test multiple scenarios:**
-- Minimal configuration (all defaults)
-- Full configuration (all parameters specified)
-- Different regions (if multi-region support)
-- Edge cases and error conditions
-
 ### Step 7: Share with Team (Optional)
 
 Before publishing publicly, share with your team for testing:
 
-1. In your private catalog, go to **Access** tab
-2. Click **Add users or access groups**
-3. Select users or access groups
-4. Assign roles:
-   - **Viewer** - Can view and deploy
-   - **Editor** - Can view, deploy, and modify
-   - **Administrator** - Full control
-5. Click **Add**
+1. Using the ibmcloud cli, mark the version of the offering as `pre-release`:
+```
+ibmcloud catalog offering version pre-release --version-locator LOCATOR
+```
+Use the cli command
+```
+ibmcloud catalog offering list --catalog <NAME or ID>
+``` 
+to obtain the version locator.
+
+2. Publish the offering to the account:
+```
+ibmcloud catalog offering publish account --catalog CATALOG --offering OFFERING
+```
 
 **Team Testing Checklist:**
 - ✅ Multiple team members can access
