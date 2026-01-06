@@ -331,88 +331,25 @@ After publishing to public catalog:
 - Add troubleshooting tips based on user feedback
 - Maintain accurate parameter descriptions
 
-## Key Validation Points Summary
-
-
 ## Key Validation Points
 
 ✅ **JSON Validation**
 - Valid JSON syntax
 - All required fields present
 - Correct CRN formats for IAM permissions
-
 ✅ **Terraform Validation**
-- Code runs successfully
-- Variables match catalog configuration
-- Outputs are properly defined
-
-✅ **UI Validation**
-- Parameters render correctly
-- Custom widgets work as expected
-- Help text is clear and accurate
-
-✅ **Deployment Validation**
-- Successful deployment in test environment
-- All resources created as expected
-- Clean destruction of resources
-
-## Common Issues
-
-- **Import fails**: Check `ibm_catalog.json` syntax and structure
-- **Missing permissions**: Verify IAM role CRNs are correct
-- **Parameter mismatch**: Ensure catalog parameters match Terraform variables
-- **Diagram not showing**: Verify SHA-256 hash matches diagram file
-- **Widget not working**: Check widget type and configuration constraints
-
-## Best Practices
-
-1. **Always test in private catalog first**
-2. **Use semantic versioning** (e.g., 1.0.0, 1.1.0)
-3. **Keep documentation up to date**
-4. **Test with minimal and full configurations**
-5. **Validate in multiple regions** if applicable
-6. **Monitor for errors** after publishing
-7. **Respond to user feedback** promptly
-
-## Quick Command Reference
-
-```bash
-# List available catalog categories
-ibmcloud catalog offering category-options
-
-# Validate JSON syntax
-cat ibm_catalog.json | jq .
-
-# Generate diagram SHA hash
-shasum -a 256 diagrams/architecture.svg
-
-# Test Terraform locally
-terraform init && terraform validate && terraform plan
-```
-
-## Additional Resources
-
-- [IBM Cloud Catalog Management](https://cloud.ibm.com/docs/account?topic=account-restrict-by-user)
-- [Private Catalog Documentation](https://cloud.ibm.com/docs/account?topic=account-catalog-enterprise-filters)
-- [Deployable Architecture Guide](https://cloud.ibm.com/docs/secure-enterprise)
-- [IBM DA Bootstrap Repository](https://github.com/IBM/da-bootstrap)
-
----
-
-**Note**: The onboarding process may take several iterations. Be prepared to update your repository and re-import as you refine your offering based on testing and feedback.
-### ✅ Terraform Validation
 - Code runs successfully (`terraform init`, `terraform validate`, `terraform plan`)
 - Variables match catalog configuration parameters
 - Outputs are properly defined
 - Provider versions are specified
 
-### ✅ UI Validation
+✅ **UI Validation**
 - Parameters render correctly in catalog UI
 - Custom widgets work as expected (vpc_region, resource_group, ssh_key, etc.)
 - Help text is clear and accurate
 - Grouping organizes parameters logically
 
-### ✅ Deployment Validation
+✅ **Deployment Validation**
 - Successful deployment in test environment
 - All resources created as expected
 - Outputs display correctly
@@ -511,6 +448,10 @@ terraform fmt -recursive
 ### Terraform Resources
 - [Terraform IBM Cloud Provider](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs)
 - [Terraform Best Practices](https://www.terraform.io/docs/cloud/guides/recommended-practices/index.html)
+
+---
+
+**Note**: The onboarding process may take several iterations. Be prepared to update your repository and re-import as you refine your offering based on testing and feedback.
 
 ---
 
