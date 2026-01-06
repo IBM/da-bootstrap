@@ -81,10 +81,13 @@ Use the IBM Console UI to create a catalog
 
 Use the IBM Cloud CLI to create a catalog
 1. Log into the IBM Cloud using the ibmcloud cli
-2. Set a target resource group.  For example:
+2. Set a target resource group:
 ```ibmcloud target -g <RESOURCE_GROUP>``` where RESOURCE_GROUP is an existing resource group name.
-3. Create the catalog by specifying the name and optionally a description.  For example:
-```ibmcloud catalog create --name "DA_CATALOG"``` where DA_CATALOG is the name of your catalog.  Note, the resource group is not specified.  The targeted resource group from step 2 will automatically be used.
+3. Create the catalog using the following command:
+```bash
+ibmcloud catalog create --name "My-DA-Catalog" --description "Private catalog for automation, solutions, and Deployable Architectures"
+```
+This command creates a new private catalog named "My-DA-Catalog" in the resource group you targeted in step 2. You can customize the catalog name and description as needed.
 
 ### Step 2: Push any updated files to Github
 
@@ -104,7 +107,7 @@ Use the IBM Console UI to import your DA
    - Choose repository type:
       - **Public repository** - For public GitHub repos
       - **Private repository** - Requires GitHub personal access token
-   - Enter your **GitHub web url** which should also include the current branch
+   - Enter your **GitHub web url** which should also include the current branch.  If current directory represents a github repository, determine the url from the github config.
       - Example: `https://github.com/your-org/your-da-repo/tree/your-branch-name` (typically `main`)
    - Select the name of your variation (flavor)
    - Select a semantic version string, for example `0.0.1` for the Software version
@@ -116,7 +119,7 @@ Use the IBM Console UI to import your DA
    - Choose repository type:
       - **Public repository** - For public GitHub repos
       - **Private repository** - Requires GitHub personal access token
-   - Enter your **GitHub web url** which should also include the current branch
+   - Enter your **GitHub web url** which should also include the current branch.  If current directory represents a github repository, determine the url from the github config.
       - Example: `https://github.com/your-org/your-da-repo/tree/your-branch-name` (typically `main`)
    - Select the name of your variation (flavor)
    - Select a semantic version string, for example `0.0.1` for the Software version
