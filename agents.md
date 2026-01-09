@@ -16,6 +16,7 @@ Automation implemented in Terraform is onboarded to the IBM Cloud.
 - Do not create yaml files. Do not create additional guides such as a deployment guide.  Ignore existing yaml files.
 - Before you begin, ask the user which directory should be used as the root directory that contains the automation for the DA.
 - Be sure to analyze all subdirectories underneath the selected root directory.
+- When using the ibmcloud cli, do not stop if user is not logged in.  Ask the user if they want to login and then proceed.
 
 ### Flow
 

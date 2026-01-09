@@ -27,6 +27,8 @@ If you haven't created these files yet, refer to:
 
 Before importing to IBM Cloud, optionally validate your DA locally:
 
+- verify that all pending file changes have been committed to the git repository.
+
 ### 1. Optionally Validate Terraform Configuration
 ```bash
 # Navigate to your Terraform directory
@@ -42,7 +44,7 @@ terraform validate
 terraform plan
 ```
 
-### 2. Optionally Validate ibm_catalog.json
+### 2. Optionally Validate ibm_catalog.json if it exists
 ```bash
 # Check JSON syntax
 cat ibm_catalog.json | jq .
@@ -54,11 +56,6 @@ cat ibm_catalog.json | jq .
 # - products[].flavors[]
 # - products[].flavors[].configuration[]
 ```
-
-### 3. Optionally Verify IAM Permissions
-- Ensure all IAM role CRNs in ibm_catalog.json are correct
-- Format: `crn:v1:bluemix:public:iam::::serviceRole:Manager`
-- Verify service names match IBM Cloud service identifiers
 
 ## Onboarding Steps
 
@@ -266,13 +263,6 @@ to obtain the version locator.
 ibmcloud catalog offering publish account --catalog CATALOG --offering OFFERING
 ```
 
-**Team Testing Checklist:**
-- ✅ Multiple team members can access
-- ✅ Deployment works for different users
-- ✅ Documentation is clear
-- ✅ Parameters are intuitive
-- ✅ No confusion about configuration options
-
 ### Step 8: Publish to Public Catalog (Optional)
 
 Once thoroughly tested, you can publish to the public IBM Cloud Catalog:
@@ -310,99 +300,6 @@ Once thoroughly tested, you can publish to the public IBM Cloud Catalog:
    - Once approved, DA is published
    - Available in public IBM Cloud Catalog
    - Monitor for user feedback and issues
-## Post-Publishing Maintenance
-
-After publishing to public catalog:
-
-### Monitor and Respond
-- Monitor deployment success rates
-- Respond to user questions and issues
-- Track feature requests
-- Address security vulnerabilities promptly
-
-### Version Updates
-- Use semantic versioning (MAJOR.MINOR.PATCH)
-- Update SHA hashes when diagrams change
-- Test new versions in private catalog first
-- Provide clear release notes
-
-### Documentation Updates
-- Keep README.md current
-- Add troubleshooting tips based on user feedback
-- Maintain accurate parameter descriptions
-
-## Key Validation Points
-
-✅ **JSON Validation**
-- Valid JSON syntax
-- All required fields present
-- Correct CRN formats for IAM permissions
-✅ **Terraform Validation**
-- Code runs successfully (`terraform init`, `terraform validate`, `terraform plan`)
-- Variables match catalog configuration parameters
-- Outputs are properly defined
-- Provider versions are specified
-
-✅ **UI Validation**
-- Parameters render correctly in catalog UI
-- Custom widgets work as expected (vpc_region, resource_group, ssh_key, etc.)
-- Help text is clear and accurate
-- Grouping organizes parameters logically
-
-✅ **Deployment Validation**
-- Successful deployment in test environment
-- All resources created as expected
-- Outputs display correctly
-- Clean destruction of resources (`terraform destroy`)
-
-## Common Issues and Solutions
-
-| Issue | Cause | Solution |
-|-------|-------|----------|
-| Import fails | Invalid JSON syntax | Validate with `cat ibm_catalog.json \| jq .` |
-| Missing permissions error | Incorrect IAM role CRNs | Verify CRNs match IBM Cloud service roles |
-| Parameter not showing | Key mismatch | Ensure catalog parameter `key` matches Terraform variable name |
-| Diagram not displaying | SHA hash mismatch | Regenerate hash: `shasum -a 256 diagrams/architecture.svg` |
-| Widget not working | Incorrect widget type or config | Check widget type and `config_constraints` in ibm_catalog.json |
-| Terraform init fails | Wrong working directory | Verify `working_directory` in flavor configuration |
-| Deployment fails | Missing required variables | Ensure all required parameters have `"required": true` |
-
-## Best Practices for DA Onboarding
-
-1. **Start with Private Catalog**
-   - Always test in private catalog first
-   - Validate with multiple users
-   - Test all flavors and configurations
-
-2. **Use Semantic Versioning**
-   - Format: MAJOR.MINOR.PATCH (e.g., 1.0.0, 1.1.0, 2.0.0)
-   - MAJOR: Breaking changes
-   - MINOR: New features, backward compatible
-   - PATCH: Bug fixes
-
-3. **Comprehensive Testing**
-   - Test with minimal configuration (all defaults)
-   - Test with full configuration (all parameters)
-   - Test in multiple regions
-   - Test edge cases and error conditions
-
-4. **Clear Documentation**
-   - Write clear, concise descriptions
-   - Provide examples for complex parameters
-   - Include troubleshooting section
-   - Document prerequisites clearly
-
-5. **Responsive Maintenance**
-   - Monitor for issues after publishing
-   - Respond to user feedback promptly
-   - Keep dependencies up to date
-   - Address security issues immediately
-
-6. **Iterative Improvement**
-   - Gather user feedback
-   - Add requested features
-   - Improve UI/UX based on usage patterns
-   - Refine documentation based on common questions
 
 ## Quick Command Reference
 
@@ -448,10 +345,6 @@ terraform fmt -recursive
 ### Terraform Resources
 - [Terraform IBM Cloud Provider](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs)
 - [Terraform Best Practices](https://www.terraform.io/docs/cloud/guides/recommended-practices/index.html)
-
----
-
-**Note**: The onboarding process may take several iterations. Be prepared to update your repository and re-import as you refine your offering based on testing and feedback.
 
 ---
 
