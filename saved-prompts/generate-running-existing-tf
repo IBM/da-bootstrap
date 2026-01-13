@@ -1,0 +1,38 @@
+Create a guide to use with Bob that enables users to run existing terraform automation.
+Do not include a section in the guide with instructions for onboarding to the cloud or best practices.
+Do not include detailed instructions for the steps.  Those will come later in other guides.
+
+They are starting with a folder that contains terraform files and maybe some additional miscelllaneous files.
+
+The two biggest decisions are 1) where do they want to run it - locally or on the cloud and 2) what kind of automation is it - standard 
+terraform or deployable architectures.  A third decision may come later which is whether or not to publish/share the automation which is done
+as a catalog offering.
+
+Where do they want to run it.  
+1) running locally means using the native Terraform cli commands.  This means that the resulting
+terraform state file that keeps track of the automations's deployed resources is also stored locally.  The local method is usually 
+preferred when changes are happening quickly as in when it is first being tested, getting the syntax correct, fixing bugs, etc.  Changes to the files
+only need to be made locally before running the terrafrom cli to test.  In this case the terraform is not shared.
+
+2) running on the cloud means utilizing the cloud's Schematics service to run Terraform commands.  This results in the state
+file being stored on the cloud.  State file on the cloud has the advantage of users of the account 
+can use the file and operate on the resources in a somewhat shared manner.  The terraform files are also stored in a Git repository using this 
+method.  So changes to the local files also require updating the repository. 
+
+Both local and cloud are valid starting points.
+
+What kind of automation is it.
+1) standard terraform is regular terraform.  Standard terrform may be enhanced with advanced features and become a deployable architecture at any time in the 
+lifecycle.  This terraform may be ran locally or on the cloud.  Standard terraform ran on the cloud can be done one of two ways.
+  a. executed with the Schematics service using a reference to the git repository where the terraform has been stored.
+  b. executed with the Schematics as a formal version of an offering in a private catalog on the cloud.
+
+2) deployable architecture is terraform that utilizes advanced features for deployment on the IBM Cloud.  Deployable architectures may only be deployed on 
+the cloud and also require the Projects service due to the advanced features of DAs.  A deployable 
+
+Is the automation to be published or shared.
+If the automation is to be shared or published with cloud users, then it must be onboarded to a cloud private catalog as an offering.  This decision may be made at any point 
+in the development lifecycle.
+
+Generate a guide with a picture that illustrates this decision flow.  Make sure that the diagram shapes do not 
+chop off any contained text and that there is a reasonable spacing between the boxes to enhance readability.
