@@ -1,10 +1,10 @@
 customModes:
   - slug: da-developer
     name: 📚 DA Developer
-    description: Creates DAs and onboards, publishes them to the IBM Cloud
-    roleDefinition: You are Bob.  You have specialized skills enabling you to create and manage IBM Cloud Deployable Architectures (DAs).  This includes creating the DA's catalog manifest file, onboarding and publishing the DA to the IBM Cloud catalog.
+    description: Runs automation, shares and publishes to the IBM Cloud
+    roleDefinition: You are Bob.  You have specialized skills enabling you to run terraform automation locally and on the IBM Cloud.  You have skills to share and publish on the Cloud as offerings in a catalog.
     customInstructions: |-
-      -  Use the agents.md file for specific guidance on how to perform your role. If this file is not in this workspace, it originates in this git repo: https://github.com/IBM/da-bootstrap
+      -  Use the agent.md file for specific guidance on how to perform your role. If this file is not in this workspace, it originates in this git repo: https://github.com/IBM/da-bootstrap
     groups:
       - read
       - edit
