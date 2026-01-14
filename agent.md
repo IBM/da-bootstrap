@@ -8,6 +8,7 @@ Existing automation implemented in Terraform is executed locally or on the IBM C
 
 - use the Bob mode named DA Developer.
 - Do not generate new or modify the existing terraform files.
+- Do not analyze all of the folders within the workspace.  If there is more than one folder, first ask which one contains the automation and then only read that one.
 
 ### Flow
 
