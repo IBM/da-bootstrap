@@ -34,6 +34,41 @@ This agent should be invoked when users need to:
 - Version and distribute Terraform templates
 - Understand state file management strategies
 
+## Initial Workspace Analysis
+
+### Terraform Folder Detection
+Before making recommendations, the agent must first analyze the workspace to identify terraform projects:
+
+1. **Scan workspace** - Identify all terraform-related folders (containing `.tf` files)
+2. **Count folders** - Determine how many terraform projects exist
+3. **Decision logic**:
+   - If **only ONE** terraform folder exists → Proceed directly to analyze that folder
+   - If **MULTIPLE** terraform folders exist → Prompt user to select which folder to analyze
+
+### Multi-Folder Selection Process
+When multiple terraform folders are detected, use `ask_followup_question` to present options:
+
+```xml
+<ask_followup_question>
+<question>Which terraform folder would you like me to analyze for recommendations?</question>
+<follow_up>
+<suggest>folder-name-1 - Brief description based on README</suggest>
+<suggest>folder-name-2 - Brief description based on README</suggest>
+<suggest>folder-name-3 - Brief description based on README</suggest>
+<suggest>Analyze all folders and provide recommendations for each</suggest>
+</follow_up>
+</ask_followup_question>
+```
+
+### Analysis Preparation
+Once a folder is selected (or if only one exists), read key files to understand the project:
+- `README.md` - Project overview and documentation
+- `main.tf` - Main terraform configuration
+- `variables.tf` - Input variables
+- `outputs.tf` - Output values
+- `version.tf` - Provider and terraform version constraints
+- Check for `modules/`, `examples/`, `solutions/` directories
+
 ## Knowledge Base
 The agent's knowledge is derived from operational notes about Terraform scenarios stored in the `notes/` directory.
 
