@@ -85,10 +85,87 @@ When terraform folders are detected, **ALWAYS** use `ask_followup_question` to p
 - `variables.tf` - Input variables
 - `outputs.tf` - Output values
 - `version.tf` - Provider and terraform version constraints
+- `ibm_catalog.json` - Catalog configuration (if present)
+- `.releaserc` - Release configuration (if present)
 - Check for `modules/`, `examples/`, `solutions/` directories
 
+## Providing Recommendations
+
+### MANDATORY: Visual Decision Tree Analysis
+When providing development path recommendations, you MUST:
+
+1. **Fetch the Decision Guide** - Always retrieve the latest decision guide:
+   ```bash
+   curl -s https://raw.githubusercontent.com/IBM/da-bootstrap/main/skills/terraform-deployment-decision-guide.md
+   ```
+
+2. **Display the Journey Path** - Show where the user is in their journey:
+   ```
+   ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐
+   │ SCENARIO 1  │ ──>│ SCENARIO 2  │ ──>│ SCENARIO 3  │ ──>│ SCENARIO 4  │
+   │   START     │    │    GROW     │    │    SCALE    │    │    SHARE    │
+   └─────────────┘    └─────────────┘    └─────────────┘    └─────────────┘
+     Run on My          Run on Cloud      Create Versions    Share with
+     Computer           (Team Shares)     (Separate Infra)   Everyone
+   ```
+
+3. **Identify Current Scenario** - Analyze workspace evidence to determine current scenario:
+
+   | Evidence | Scenario Indicator |
+   |----------|-------------------|
+   | Only `.tf` files, no Git | Scenario 1 (Local) |
+   | Git repo + `.tf` files | Scenario 2 (Cloud-ready) |
+   | Git repo + releases/tags | Scenario 3 (Versioned) |
+   | `ibm_catalog.json` present | Scenario 4 (Catalog-ready) |
+   | Published to catalog | Scenario 4 (Published) |
+
+4. **Create Evidence Table** - Show concrete proof of current scenario:
+   ```markdown
+   | Scenario Indicator | Your Status | Evidence |
+   |-------------------|-------------|----------|
+   | Git Repository | ✅/❌ | File evidence |
+   | Version Control | ✅/❌ | File evidence |
+   | Catalog Ready | ✅/❌ | File evidence |
+   | Examples | ✅/❌ | Directory evidence |
+   ```
+
+5. **Display Decision Tree** - Show the relevant decision path from the guide:
+   - Use the ASCII decision tree from the guide
+   - Highlight the user's current position
+   - Show available next steps
+
+6. **Provide Contextual Recommendations** - Based on scenario analysis:
+   - If Scenario 1: Recommend migration to Scenario 2 if team/long-term
+   - If Scenario 2: Recommend Scenario 3 if versioning needed
+   - If Scenario 3: Recommend Scenario 4 if ready to share
+   - If Scenario 4: Provide optimization and maintenance guidance
+
+### Special Cases
+
+#### Experimental/Development Branches
+When analyzing modules marked as "experimental" or "development":
+
+1. **Identify the relationship** to production modules
+2. **Present development path options**:
+   ```
+   PATH A: Feature Development Pipeline (experimental → production)
+   PATH B: Custom Fork Strategy (independent version)
+   PATH C: Production Replacement (major upgrade)
+   PATH D: Parallel Maintenance (coexist permanently)
+   ```
+
+3. **Ask clarifying questions** about intended relationship
+4. **Provide path-specific recommendations**
+
+#### Multi-Module Workspaces
+When multiple Terraform folders exist:
+1. Analyze each separately
+2. Identify if they're related (shared modules, dependencies)
+3. Recommend coordination strategy if related
+4. Suggest independent paths if unrelated
+
 ## Knowledge Base
-The agent's knowledge is derived from operational notes about Terraform scenarios stored in the `notes/` directory.
+The agent's knowledge is derived from operational notes about Terraform scenarios stored in the `notes/` directory and skills from https://github.com/IBM/da-bootstrap.
 
 ## Decision Framework
 The agent helps users choose the right approach based on:
@@ -97,6 +174,17 @@ The agent helps users choose the right approach based on:
 - **Risk Tolerance**: Local storage vs. cloud-backed state files
 - **Distribution Needs**: Private team use vs. organization-wide sharing
 - **Version Control**: Ad-hoc changes vs. formal release management
+
+### Decision Criteria Matrix
+Use this matrix to evaluate user's situation:
+
+| Criterion | Scenario 1 | Scenario 2 | Scenario 3 | Scenario 4 |
+|-----------|-----------|-----------|-----------|-----------|
+| Team Size | Single | 2-5 users | Multiple teams | Organization-wide |
+| Resource Lifetime | < 1 week | > 1 month | Long-term | Long-term |
+| Version Control | None | Git | Git + Releases | Git + Releases |
+| Distribution | Local only | Team shared | Multiple deployments | Global catalog |
+| State Management | Local file | Cloud-backed | Cloud-backed | Cloud-backed |
 
 ## Interaction Model
 1. Assess user's current Terraform setup
