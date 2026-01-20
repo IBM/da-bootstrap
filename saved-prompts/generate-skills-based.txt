@@ -1,0 +1,32 @@
+NOTES
+When terraform executes, it creates, deletes, modifies resources as instructed by the template's terraform code.  when it is finished, it keeps a record of the infrastructure that it
+operated on and stores in a what is called the 'state' file.  it is a kind of map to actual resources so that future updates to those resources may be handled correctly.  It is an important file.
+
+Users that have existing terraform can be faced with three different scenarios.
+
+1) they have terraform locally on their machine.  they can run it there and create cloud resources.  a disadvantage of this is that they are the only 
+ones to continue to manage the resources since the terraform state file has been saved on the local machine.  if any one else wants to manage the resources using 
+the terraform template they should not since they do not have the state file.  management of the resources should continue to be done on that local machine where the state file is located.  this 
+is not an issue if the resources are not intended to be kept beyond short term or if it is desired to be managed by one person, but still not a good idea of those resources will exist beyond a 
+short time frame since there is risk something could happen to the machine where the state file is lcoated, or the state file it self could get accidentally deleted or corrupted.  An advantage of creating
+resources this way is that it is relatively easy and requires a minimal setup.  it is great for testing the terraform template itself and quickly making changes, cleaning up resources and retesting.
+
+2) at some point it may be desired to create and manage resources with the terraform template and be able to collaborate with a team to do it and have the stability of keeping an important file 
+like that state file stored in a place that is far less risk than on a local machine, then it is time to consider running the terraform on the Cloud.  running on the cloud means that the
+state file is store on the cloud.  the terraform operations are represented by a 'workspace' that is created by the IBM Schematics cloud service.  Cloud users with the 
+appropriate permissions may each be able to use the Schematics service to execute the terraform on their behalf and update a single terraform state file.  Each cloud user may 
+build off of each others efforts.  A necessary step to enable this approach is to store the terraform template in a Git repository.  When a Schematics workspace is created, the Git 
+repository is read in order to retreive the terraform template.  With the terraform maintained in a repository, it too may be shared to team members for collaboration and maintenance.  This allows 
+multiple cloud users to collectively maintain cloud resources created by this specific terraform template for a longer term than in the first scenario.  Multiple people maintain
+the same instance of resources in this approach.   
+
+3) As part of the normal lifecyle and since the template is kept in a repository, it may be desired to use git to create formal releases
+of the template which is benefitual to designate a level that has been tested and completed acceptance criteria.  It could also be used to track versions still under development.  
+Releases of the template may be kept collectively on the cloud as a product offering.  product offerings are kept in a cloud catalog.  owners of catalogs may share 
+offerings to other cloud users for team collaboration.  when releases of the template are created in git, they may be imported to the offering in the catalog to make them available to cloud
+users with access to the catalog.  Schematics can execute terraform that is an offering version.  This gives an additional method to execute terraform on the cloud with all of the benefits of the cloud.
+When Schematics executes a product offering's terraform, it creates a new workspace each time and thus creates new instances of the resources created by the terraform template.  This is different
+from 2) where the resources are managed from a single workspace and state file.  
+
+4) the terraform template may reach a point where it is deemed as general purose and useful for other teams to use without starting from scratch to create their own template.  in this scenario, 
+the product offering may be shared or published globally on the cloud for all users.  Similar to 3) is that each user of the template creates their own instances of resources.
