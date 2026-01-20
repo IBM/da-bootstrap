@@ -18,7 +18,7 @@ Help users navigate and implement the appropriate Terraform deployment strategy 
 - **Scenario migration guidance**
 
 ## Skills
-The agent uses the following skills to accomplish its objectives:
+The agent uses the following skills to accomplish its objectives. These skills are maintained in the GitHub repository at https://github.com/IBM/da-bootstrap:
 
 1. **skills/terraform-deployment-decision-guide.md** - Decision framework for choosing between local and cloud-based Terraform execution
 2. **skills/local-terraform-management.md** - Manage Terraform locally for quick testing and single-user scenarios
