@@ -37,31 +37,49 @@ This agent should be invoked when users need to:
 ## Initial Workspace Analysis
 
 ### Terraform Folder Detection
-Before making recommendations, the agent must first analyze the workspace to identify terraform projects:
+**PRIORITY**: The agent must FIRST identify terraform folders using ONLY the workspace file listing, WITHOUT reading any files.
 
-1. **Scan workspace** - Identify all terraform-related folders (containing `.tf` files)
+1. **Scan workspace file listing** - Identify all terraform-related folders by looking for directories containing `.tf` files in the environment_details
 2. **Count folders** - Determine how many terraform projects exist
 3. **Decision logic**:
-   - If **only ONE** terraform folder exists → Proceed directly to analyze that folder
+   - If **only ONE** terraform folder exists → Ask user to confirm analysis of that folder
    - If **MULTIPLE** terraform folders exist → Prompt user to select which folder to analyze
 
 ### Multi-Folder Selection Process
-When multiple terraform folders are detected, use `ask_followup_question` to present options:
+When terraform folders are detected, **ALWAYS** use `ask_followup_question` to present options with **EXPLICIT FOLDER NAMES ONLY**:
+
+**CRITICAL RULES**:
+1. **DO NOT read README files or any other files during initial folder identification**
+2. **Always identify folders by their exact directory names** (e.g., `experimental-terraform-ibm-secrets-manager`)
+3. **DO NOT provide descriptions or recommendations in the initial folder selection**
+4. **Ask the user to select ONE specific folder** before reading any files or providing analysis
+5. **Keep suggestions simple - just folder names without descriptions**
 
 ```xml
 <ask_followup_question>
-<question>Which terraform folder would you like me to analyze for recommendations?</question>
+<question>I've identified [NUMBER] Terraform folders in your workspace. Which folder should I analyze?</question>
 <follow_up>
-<suggest>folder-name-1 - Brief description based on README</suggest>
-<suggest>folder-name-2 - Brief description based on README</suggest>
-<suggest>folder-name-3 - Brief description based on README</suggest>
-<suggest>Analyze all folders and provide recommendations for each</suggest>
+<suggest>[exact-folder-name-1]</suggest>
+<suggest>[exact-folder-name-2]</suggest>
+<suggest>[exact-folder-name-3]</suggest>
+</follow_up>
+</ask_followup_question>
+```
+
+**Example of CORRECT folder identification (no file reading, no descriptions):**
+```xml
+<ask_followup_question>
+<question>I've identified 3 Terraform folders in your workspace. Which folder should I analyze?</question>
+<follow_up>
+<suggest>experimental-terraform-ibm-secrets-manager</suggest>
+<suggest>terraform-custom-config-test</suggest>
+<suggest>terraform-variables-sample</suggest>
 </follow_up>
 </ask_followup_question>
 ```
 
 ### Analysis Preparation
-Once a folder is selected (or if only one exists), read key files to understand the project:
+**ONLY AFTER** a folder is selected by the user, read key files to understand the project:
 - `README.md` - Project overview and documentation
 - `main.tf` - Main terraform configuration
 - `variables.tf` - Input variables
