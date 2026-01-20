@@ -95,7 +95,6 @@ When terraform folders are detected, **ALWAYS** use `ask_followup_question` to p
 
 **Optional Files (if present):**
 - `ibm_catalog.json` - Catalog configuration
-- `.releaserc` - Release automation configuration
 
 **Directory Structure:**
 - Check for `modules/` directory

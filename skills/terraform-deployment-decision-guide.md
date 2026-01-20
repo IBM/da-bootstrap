@@ -305,7 +305,6 @@ START: Am I just testing something quickly?
 
 **Scenario 4 Indicators:**
 - `ibm_catalog.json` present
-- `.releaserc` for automated releases
 - Architecture diagrams
 - Support documentation
 - Published to catalog
