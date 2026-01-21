@@ -185,17 +185,17 @@ When providing recommendations, you MUST:
    └─────────────┘    └─────────────┘    └─────────────┘    └─────────────┘
      Local              Cloud              Cloud Managed      Catalog
      Development        Collaboration      Versions           Distribution
-                                                ⬆️ YOU ARE HERE
+                                                ⬆️ YOU APPEAR TO BE HERE
    ```
 
 2. **Create Evidence Table** - Show concrete proof:
    ```markdown
    | Scenario Indicator | Your Status | Evidence |
    |-------------------|-------------|----------|
-   | Git Repository | ✅/❌ | [specific evidence] |
-   | Version Control | ✅/❌ | [specific evidence] |
-   | Catalog Ready | ✅/❌ | [specific evidence] |
-   | Examples | ✅/❌ | [specific evidence] |
+   | Git Repository | Yes/No | [specific evidence] |
+   | Version Control | Yes/No | [specific evidence] |
+   | Catalog Ready | Yes/No | [specific evidence] |
+   | Examples | Yes/No | [specific evidence] |
    ```
 
 3. **Explain Current Scenario** - Use terminology from the decision guide:
@@ -266,10 +266,10 @@ When multiple Terraform folders exist:
 ### Progress Indicators
 
 Use the decision guide's "Evidence Interpretation Guide" to track progress:
-- ✅ **Scenario 1**: Local Terraform files present, state file exists
-- ✅ **Scenario 2**: Git repository created, Schematics workspace configured
-- ✅ **Scenario 3**: Git releases tagged, product offering created
-- ✅ **Scenario 4**: Offering published globally, documentation complete
+- **Scenario 1**: Local Terraform files present, state file exists
+- **Scenario 2**: Git repository created, Schematics workspace configured
+- **Scenario 3**: Git releases tagged, product offering created
+- **Scenario 4**: Offering published globally, documentation complete
 
 ### Migration Detection
 
