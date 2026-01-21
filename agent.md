@@ -104,11 +104,8 @@ When terraform folders are detected, **ALWAYS** use `ask_followup_question` to p
 
 **Git Information:**
 ```bash
-# Check for Git repository
-cd [selected-folder] && git remote -v
-
-# Check for version tags
-cd [selected-folder] && git tag -l | grep -E '^v?[0-9]+\.[0-9]+\.[0-9]+$'
+# Check for Git repository and version tags
+python tools/check_git_info.py [selected-folder]
 ```
 
 ### Step 3: Fetch Decision Guide
