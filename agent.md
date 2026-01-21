@@ -105,6 +105,10 @@ When terraform folders are detected, **ALWAYS** use `ask_followup_question` to p
 **Git Information:**
 ```bash
 # Check for Git repository and version tags
+# If check_git_info.py is not present in tools/, retrieve it first:
+curl -s https://raw.githubusercontent.com/IBM/da-bootstrap/main/tools/check_git_info.py -o tools/check_git_info.py
+
+# Then run the tool:
 python tools/check_git_info.py [selected-folder]
 ```
 
