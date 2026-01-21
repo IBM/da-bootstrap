@@ -1,7 +1,7 @@
 # Cloud-Based Terraform with IBM Schematics (Scenario 2)
 
 ## Skill Overview
-This skill covers deploying and managing Terraform using IBM Cloud Schematics for team collaboration and production-grade infrastructure management. In this scenario, a single workspace with a shared state file is used, and multiple team members collectively manage the SAME set of resources.
+This skill covers deploying and managing Terraform using IBM Cloud Schematics for team collaboration and production-grade infrastructure management. In this scenario, **ONE Schematics workspace stored on IBM Cloud** with a shared cloud-backed state file is used, and multiple team members collectively manage the SAME set of resources together.
 
 ## When to Use
 - Team collaboration on infrastructure
@@ -14,22 +14,29 @@ This skill covers deploying and managing Terraform using IBM Cloud Schematics fo
 
 ## Key Concepts
 
-### IBM Schematics Workspaces
-Running Terraform on the cloud means the state file is stored securely on the cloud. Terraform operations are represented by a **workspace** created by the IBM Schematics cloud service. This workspace becomes the central point for managing your infrastructure.
+### IBM Schematics Workspaces (Stored on Cloud)
+Running Terraform on the cloud means both the **workspace and state file are stored securely on IBM Cloud**. Terraform operations are represented by a **workspace** created by the IBM Schematics cloud service. This workspace becomes the central point for managing your infrastructure.
+
+**Critical Understanding:**
+- The workspace itself is a cloud resource stored on IBM Cloud
+- The state file is stored within the workspace on IBM Cloud
+- Team members access the same cloud-stored workspace
+- All Terraform execution happens in the cloud, not locally
 
 ### State File Storage
-Unlike local Terraform, the state file is stored on IBM Cloud, providing:
+Unlike local Terraform where the state file is on your computer, in Scenario 2 the state file is stored on IBM Cloud within the Schematics workspace, providing:
 - **Durability**: Protected against local machine failures
-- **Accessibility**: Available to authorized team members
-- **Security**: Encrypted and backed up automatically
-- **Consistency**: Single source of truth for infrastructure state
+- **Accessibility**: Available to authorized team members via cloud
+- **Security**: Encrypted and backed up automatically on IBM Cloud
+- **Consistency**: Single source of truth for infrastructure state stored in cloud
 
-### Team Collaboration
+### Team Collaboration (Shared Cloud Workspace)
 Cloud users with appropriate permissions can:
-- Execute Terraform through Schematics
-- Update a single shared state file
+- Access the same Schematics workspace stored on IBM Cloud
+- Execute Terraform through the shared cloud workspace
+- Update a single shared state file stored in the cloud
 - Build upon each other's work
-- Maintain collective infrastructure
+- Maintain collective infrastructure together
 
 ## Prerequisites
 
@@ -102,13 +109,15 @@ Set Terraform variables in the workspace:
 ## Advantages
 
 ### Collaboration Benefits
-- **Shared State**: Single state file accessible to team
-- **Concurrent Access**: Multiple users can work safely
-- **Change Tracking**: Audit trail of all operations
-- **Role-Based Access**: Control who can view/modify
+- **Shared Cloud Workspace**: ONE Schematics workspace stored on IBM Cloud accessible to team
+- **Shared State**: Single state file stored in cloud workspace accessible to team
+- **Concurrent Access**: Multiple users can work safely on the same cloud workspace
+- **Change Tracking**: Audit trail of all operations in cloud
+- **Role-Based Access**: Control who can view/modify the cloud workspace
 
 ### Operational Benefits
-- **Reliability**: Cloud-backed state file storage
+- **Cloud Storage**: Workspace and state file stored on IBM Cloud
+- **Reliability**: Cloud-backed workspace and state file storage
 - **Scalability**: Handle large infrastructure deployments
 - **Integration**: Works with IBM Cloud services
 - **Automation**: API-driven operations possible
@@ -253,20 +262,22 @@ terraform state pull > terraform.tfstate
 - Monitor network traffic
 
 ## Cost Considerations
-- Schematics workspace usage is free
+- Schematics workspace storage on IBM Cloud is free
 - Pay only for created cloud resources
 - Monitor resource costs regularly
 - Use cost estimation features
 
 ## Integration Opportunities
-- **CI/CD Pipelines**: Automate workspace operations
-- **Monitoring**: Track infrastructure changes
+- **CI/CD Pipelines**: Automate cloud workspace operations
+- **Monitoring**: Track infrastructure changes in cloud workspace
 - **Notifications**: Alert on workspace events
 - **APIs**: Programmatic workspace management
 
-## When to Upgrade
-Consider moving to product offerings (see `terraform-product-offerings.md`) when:
-- Need formal version releases
-- Want to distribute to multiple teams
+## When to Upgrade to Scenario 3
+Consider moving to Scenario 3: Cloud Managed Versions (see [`terraform-product-offerings.md`](terraform-product-offerings.md)) when:
+- Need formal version releases (v1.0, v2.0)
+- Want to distribute to multiple teams (each gets their own workspace)
+- Multiple teams need separate infrastructure instances
 - Require version tracking and rollback
 - Creating reusable infrastructure patterns
+- Need MULTIPLE Schematics workspaces instead of ONE shared workspace

@@ -35,9 +35,9 @@ Guide template owners through a decision-making process to select the optimal de
 | Template useful company-wide | **Scenario 4** | Publish globally (requires Scenario 3 first) |
 
 **Standardized Terminology:**
-- **Scenario 1: Local Development** = I run Terraform on my laptop/desktop
-- **Scenario 2: Cloud Collaboration** = My team runs Terraform in the cloud, we all work on the same infrastructure
-- **Scenario 3: Cloud Managed Versions** = Create numbered versions in a Catalog offering, each person who deploys gets their own separate servers/databases
+- **Scenario 1: Local Development** = I run Terraform on my laptop/desktop, state file stored locally
+- **Scenario 2: Cloud Collaboration** = My team runs Terraform in IBM Cloud Schematics workspace (stored on cloud), we all work on the same infrastructure with a shared cloud-backed state file
+- **Scenario 3: Cloud Managed Versions** = Create numbered versions in a Catalog offering, each person who deploys gets their own separate Schematics workspace (created automatically by Catalog service) and infrastructure
 - **Scenario 4: Catalog Distribution** = Make my template available to the whole company (requires Scenario 3 first)
 
 ---
@@ -161,9 +161,10 @@ When evidence and intent conflict:
 
 | Aspect | Scenario 1 | Scenario 2 |
 |--------|-----------|-----------|
-| Execution | Local machine | IBM Cloud Schematics |
-| State File | Local file | Cloud-backed |
-| Collaboration | Single user | Team access |
+| Execution | Local machine | IBM Cloud Schematics workspace (cloud) |
+| State File | Local file | Cloud-backed (stored in Schematics workspace) |
+| Workspace | None | ONE Schematics workspace (shared) |
+| Collaboration | Single user | Team access (shared workspace) |
 | Backup | Manual | Automatic |
 
 **Transition Trigger**: When team collaboration or long-term resources are needed
@@ -172,24 +173,34 @@ When evidence and intent conflict:
 
 **Key Question**: Do deployments share infrastructure or create separate instances?
 
-**Scenario 2: Shared Infrastructure**
+**Scenario 2: Shared Infrastructure (ONE Workspace)**
 ```
-Git Repo → Schematics Workspace → ONE Infrastructure
-           (Team collaborates)     (Everyone shares)
+Git Repo → ONE Schematics Workspace (cloud) → ONE Infrastructure
+           (Team collaborates)                (Everyone shares)
+           State file stored on cloud
 ```
 - One Git repository
+- **ONE Schematics workspace** stored on IBM Cloud
 - Team collaborates on **the same infrastructure**
+- Shared cloud-backed state file
 - Changes affect everyone's environment
 - Example: Team manages production VPC together
 
-**Scenario 3: Versioned Templates**
+**Scenario 3: Versioned Templates (MULTIPLE Workspaces)**
 ```
-Git Repo v1.0 → Team A Workspace → Team A Infrastructure
-             ↘ Team B Workspace → Team B Infrastructure
-             ↘ Team C Workspace → Team C Infrastructure
+Git Repo v1.0 → Catalog Offering v1.0
+                    ↓ (User deploys)
+             Team A Schematics Workspace (created by Catalog) → Team A Infrastructure
+                    ↓ (User deploys)
+             Team B Schematics Workspace (created by Catalog) → Team B Infrastructure
+                    ↓ (User deploys)
+             Team C Schematics Workspace (created by Catalog) → Team C Infrastructure
 ```
 - One Git repository with version tags
+- Versions stored as Catalog offering versions
+- **MULTIPLE Schematics workspaces** (one per deployment, created automatically by Catalog service)
 - Each deployment creates **separate infrastructure**
+- Each workspace has its own cloud-backed state file
 - Changes don't affect other deployments
 - Example: Each team deploys their own VPC from v2.1.0
 
@@ -236,14 +247,14 @@ START: Am I just testing something quickly?
     ├─ YES → Do I need to track different versions (like v1.0, v2.0)?
     │   │
     │   ├─ NO → SCENARIO 2: Cloud Collaboration
-    │   │         What this means: Team works together on the same infrastructure
+    │   │         What this means: Create ONE Schematics workspace (stored on cloud), team works together on the same infrastructure
     │   │         Good for: Production systems, team projects, long-term resources
-    │   │         ✓ Everyone manages the same servers/databases together
+    │   │         ✓ Everyone manages the same servers/databases together via shared cloud workspace
     │   │
     │   └─ YES → SCENARIO 3: Cloud Managed Versions
-    │             What this means: Create v1.0, v2.0, etc. Each person who deploys gets their own separate servers/databases
+    │             What this means: Create v1.0, v2.0, etc. in Catalog offering. When deployed, Catalog service automatically creates a Schematics workspace for each deployment
     │             Good for: Reusable templates, different environments, multiple teams
-    │             ✓ Track versions, everyone gets their own independent infrastructure
+    │             ✓ Track versions, everyone gets their own independent workspace (created by Catalog) and infrastructure
     │
     │             Later, ask yourself: Should everyone in my company be able to use this?
     │             │
@@ -258,8 +269,8 @@ START: Am I just testing something quickly?
 ```
 
 **In Plain English:**
-- **Scenario 1 vs 2**: My computer vs Cloud (where does it run?)
-- **Scenario 2 vs 3**: Team shares same infrastructure vs Everyone gets their own separate infrastructure
+- **Scenario 1 vs 2**: My computer vs Cloud Schematics workspace (where does it run?)
+- **Scenario 2 vs 3**: ONE shared workspace (team shares same infrastructure) vs MULTIPLE workspaces created by Catalog (everyone gets their own separate infrastructure)
 - **Scenario 3 vs 4**: Private to my team vs Available to whole company
 
 **Important:** You must do Scenario 3 before you can do Scenario 4 - you can't share something company-wide until you've created the versioned template first.
