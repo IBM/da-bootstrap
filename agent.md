@@ -84,15 +84,36 @@ When terraform folders are detected, **ALWAYS** use `ask_followup_question` to p
 
 ### Step 2: Gather Project Evidence
 
-**ONLY AFTER** a folder is selected by the user, follow these steps:
+**ONLY AFTER** a folder is selected by the user, follow these steps IN ORDER:
 
-**First: Retrieve Git Analysis Tool**
+#### 2.1: MANDATORY Git Analysis Tool Setup
+
+**⚠️ CRITICAL REQUIREMENT**: Before ANY file reading or analysis, you MUST:
+
+1. **Check if tool exists**: Verify `tools/check_git_info.py` is present
+2. **Retrieve if missing**: Download from GitHub if not found
+3. **Execute the tool**: Run with `--summary` flag on selected folder
+
+**Commands to execute:**
 ```bash
-# Always retrieve check_git_info.py tool first if not present
-curl -s https://raw.githubusercontent.com/IBM/da-bootstrap/main/tools/check_git_info.py -o tools/check_git_info.py
+# Step 1: Create tools directory if needed and retrieve the tool
+mkdir -p tools && curl -s https://raw.githubusercontent.com/IBM/da-bootstrap/main/tools/check_git_info.py -o tools/check_git_info.py
+
+# Step 2: Run the tool with summary flag
+python3 tools/check_git_info.py [selected-folder] --summary
 ```
 
-**Then: Read Key Files**
+**Why this is mandatory:**
+- Provides accurate Git repository status
+- Identifies version tags for scenario classification
+- Detects remote repository configuration
+- Essential for evidence-based decision making
+
+**DO NOT PROCEED** to file reading until Git analysis is complete.
+
+---
+
+#### 2.2: Read Key Files
 
 **Required Files:**
 - `README.md` - Project overview and documentation
@@ -119,6 +140,8 @@ curl -s https://raw.githubusercontent.com/IBM/da-bootstrap/main/tools/check_git_
 # Then run the tool with summary flag to reduce output:
 python3 tools/check_git_info.py [selected-folder] --summary
 ```
+
+**NOTE**: This Git information gathering is now handled in Step 2.1 above and should be completed BEFORE reading any files.
 
 ### Step 3: Fetch Decision Guide
 
