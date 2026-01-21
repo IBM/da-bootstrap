@@ -138,7 +138,7 @@ Use the decision guide to determine the current scenario:
 **Evidence Mapping (from decision guide):**
 - Only `.tf` files, no Git → Scenario 1 (Local Development)
 - Git repo, no tags → Scenario 2 (Cloud Collaboration)
-- Git repo + version tags → Scenario 3 (Versioned Deployments)
+- Git repo + version tags → Scenario 3 (Cloud Managed Versions)
 - Git repo + tags + `ibm_catalog.json` → Scenario 4 (Catalog Distribution)
 
 ### Step 5: Present Recommendations
@@ -151,8 +151,8 @@ When providing recommendations, you MUST:
    │ SCENARIO 1  │ ──>│ SCENARIO 2  │ ──>│ SCENARIO 3  │ ──>│ SCENARIO 4  │
    │   START     │    │    GROW     │    │    SCALE    │    │    SHARE    │
    └─────────────┘    └─────────────┘    └─────────────┘    └─────────────┘
-     Local              Cloud              Versioned          Catalog
-     Development        Collaboration      Deployments        Distribution
+     Local              Cloud              Cloud Managed      Catalog
+     Development        Collaboration      Versions           Distribution
                                                 ⬆️ YOU ARE HERE
    ```
 
@@ -169,7 +169,7 @@ When providing recommendations, you MUST:
 3. **Explain Current Scenario** - Use terminology from the decision guide:
    - Scenario 1: Local Development
    - Scenario 2: Cloud Collaboration
-   - Scenario 3: Versioned Deployments
+   - Scenario 3: Cloud Managed Versions
    - Scenario 4: Catalog Distribution
 
 4. **Provide Contextual Recommendations** - Based on the "Next Steps by Scenario" section in the decision guide

@@ -18,8 +18,8 @@ Guide template owners through a decision-making process to select the optimal de
 │ SCENARIO 1  │ ──>│ SCENARIO 2  │ ──>│ SCENARIO 3  │ ──>│ SCENARIO 4  │
 │   START     │    │    GROW     │    │    SCALE    │    │    SHARE    │
 └─────────────┘    └─────────────┘    └─────────────┘    └─────────────┘
-  Local              Cloud              Versioned          Catalog
-  Development        Collaboration      Deployments        Distribution
+  Local              Cloud              Cloud Managed      Catalog
+  Development        Collaboration      Versions           Distribution
 ```
 
 #### Quick Lookup: Which Scenario Am I?
@@ -37,7 +37,7 @@ Guide template owners through a decision-making process to select the optimal de
 **Standardized Terminology:**
 - **Scenario 1: Local Development** = I run Terraform on my laptop/desktop
 - **Scenario 2: Cloud Collaboration** = My team runs Terraform in the cloud, we all work on the same infrastructure
-- **Scenario 3: Versioned Deployments** = Create numbered versions, each person who deploys gets their own separate servers/databases
+- **Scenario 3: Cloud Managed Versions** = Create numbered versions in a Catalog offering, each person who deploys gets their own separate servers/databases
 - **Scenario 4: Catalog Distribution** = Make my template available to the whole company (requires Scenario 3 first)
 
 ---
@@ -96,8 +96,8 @@ Ask clarifying questions when evidence is ambiguous:
 |----------|--------------|--------------|-------------------|---------------------|
 | **1: Local Development** | `.tf` files only | No Git repo | "Just testing", "Learning", "Quick experiment" | "Is this temporary (<1 week)?" |
 | **2: Cloud Collaboration** | `.tf` + Git | Git repo, no tags | "Team needs access", "Long-term resources" | "Does your team collaborate on this?" |
-| **3: Versioned Deployments** | `.tf` + Git + tags | Git repo + semantic version tags | "Need versions", "Multiple deployments" | "Do teams deploy separate instances?" |
-| **4: Catalog Distribution** | `.tf` + Git + tags + catalog | Git repo + tags + `ibm_catalog.json` | "Share org-wide", "Standardize patterns" | "Should everyone be able to use this?" |
+| **3: Cloud Managed Versions** | `.tf` + Git + tags + catalog | Git repo + semantic version tags | "Need versions", "Multiple deployments" | "Do teams deploy separate instances?" |
+| **4: Catalog Distribution** | `.tf` + Git + tags + catalog | Git repo + tags | "Share org-wide", "Standardize patterns" | "Should everyone be able to use this?" |
 
 ### Decision Logic Flowchart
 
@@ -120,7 +120,7 @@ Ask clarifying questions when evidence is ambiguous:
                         No Tags                 Tags Exist
                             │                       │
                             ↓                       ↓
-                     SCENARIO 2          Check for ibm_catalog.json
+                     SCENARIO 2          Check for Catalog
                 (Cloud Collaboration)              ↓
                                         ┌───────────┴───────────┐
                                         │                       │
@@ -128,7 +128,7 @@ Ask clarifying questions when evidence is ambiguous:
                                         │                       │
                                         ↓                       ↓
                                  SCENARIO 3              Check if Published
-                          (Versioned Deployments)              ↓
+                          (Cloud Managed Versions)              ↓
                                                     ┌───────────┴───────────┐
                                                     │                       │
                                               Not Published            Published
@@ -240,7 +240,7 @@ START: Am I just testing something quickly?
     │   │         Good for: Production systems, team projects, long-term resources
     │   │         ✓ Everyone manages the same servers/databases together
     │   │
-    │   └─ YES → SCENARIO 3: Versioned Deployments
+    │   └─ YES → SCENARIO 3: Cloud Managed Versions
     │             What this means: Create v1.0, v2.0, etc. Each person who deploys gets their own separate servers/databases
     │             Good for: Reusable templates, different environments, multiple teams
     │             ✓ Track versions, everyone gets their own independent infrastructure
@@ -349,7 +349,7 @@ START: Am I just testing something quickly?
 - Multiple environments required
 
 **Agent Response Template:**
-"I see [evidence]. You might benefit from Scenario 3 (Versioned Deployments) to track releases and enable independent deployments."
+"I see [evidence]. You might benefit from Scenario 3 (Cloud Managed Versions) to track releases and enable independent deployments."
 
 #### From Scenario 3 to Scenario 4
 
@@ -586,7 +586,7 @@ START: Am I just testing something quickly?
 
 **If Scenario 1 score is highest**: Start with local, plan migration
 **If Scenario 2 score is highest**: Use cloud collaboration from the start
-**If Scenario 3 score is highest**: Implement versioned deployments
+**If Scenario 3 score is highest**: Implement managed versions
 **If Scenario 4 score is highest**: Prepare for catalog distribution
 **If scores are close**: Consider hybrid approach or ask clarifying questions
 
@@ -626,7 +626,7 @@ START: Am I just testing something quickly?
 **Pros**: Zero downtime
 **Cons**: Temporary duplication costs
 
-### From Cloud to Versioned (Scenario 2 → 3)
+### From Cloud to Cloud Managed Versions (Scenario 2 → 3)
 
 #### Strategy 1: Tag Current State
 1. Create initial version tag (v1.0.0)
@@ -648,7 +648,7 @@ START: Am I just testing something quickly?
 **Pros**: Improved template quality
 **Cons**: More upfront work
 
-### From Versioned to Catalog (Scenario 3 → 4)
+### From Cloud Managed Versions to Catalog (Scenario 3 → 4)
 
 #### Strategy 1: Direct Publication
 1. Create `ibm_catalog.json`
@@ -692,7 +692,7 @@ START: Am I just testing something quickly?
 **Situation**: Creating template for multiple team deployments
 **Evidence**: Git repo + version tags, examples directory
 **Intent**: "Each team needs their own instance"
-**Recommendation**: Scenario 3 (Versioned Deployments)
+**Recommendation**: Scenario 3 (Cloud Managed Versions)
 **Reasoning**: Multiple independent deployments, version tracking needed
 
 ### Scenario 4: Organization-Wide Standard
@@ -774,7 +774,7 @@ Use this checklist to make your decision:
 - [ ] Audit trail required
 - [ ] No versioning needed yet
 
-### Choose Scenario 3 (Versioned Deployments) if:
+### Choose Scenario 3 (Cloud Managed Versions) if:
 - [ ] Multiple independent deployments needed
 - [ ] Version tracking required (v1.0, v2.0)
 - [ ] Different teams need separate instances
@@ -817,7 +817,7 @@ Use this checklist to make your decision:
 4. Create Schematics workspace
 5. Configure team access
 
-### If You Chose Scenario 3 (Versioned Deployments)
+### If You Chose Scenario 3 (Cloud Managed Versions)
 1. Review: `terraform-product-offerings.md`
 2. Implement semantic versioning
 3. Create release process
@@ -904,7 +904,7 @@ If still unsure, consider:
 │    Duration: >1 month                                        │
 │    State: Cloud-backed                                       │
 ├─────────────────────────────────────────────────────────────┤
-│ 3: VERSIONED DEPLOYMENTS                                     │
+│ 3: CLOUD MANAGED VERSIONS                                   │
 │    Evidence: Git repo + version tags                        │
 │    Intent: Multiple independent deployments                 │
 │    Duration: Long-term, multiple instances                  │
