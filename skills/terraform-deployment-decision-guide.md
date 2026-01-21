@@ -94,7 +94,7 @@ Ask clarifying questions when evidence is ambiguous:
 
 | Scenario | File Evidence | Git Evidence | Intent Indicators | Validation Questions |
 |----------|--------------|--------------|-------------------|---------------------|
-| **1: Local Development** | `.tf` files only | No Git repo | "Just testing", "Learning", "Quick experiment" | "Is this temporary (<1 week)?" |
+| **1: Local Development** | `.tf` files, `.terraform/` dir, `terraform.tfstate` | No Git repo | "Just testing", "Learning", "Quick experiment" | "Is this temporary (<1 week)?" |
 | **2: Cloud Collaboration** | `.tf` + Git | Git repo, no tags | "Team needs access", "Long-term resources" | "Does your team collaborate on this?" |
 | **3: Cloud Managed Versions** | `.tf` + Git + tags + catalog | Git repo + semantic version tags | "Need versions", "Multiple deployments" | "Do teams deploy separate instances?" |
 | **4: Catalog Distribution** | `.tf` + Git + tags + catalog | Git repo + tags | "Share org-wide", "Standardize patterns" | "Should everyone be able to use this?" |
@@ -295,7 +295,9 @@ START: Am I just testing something quickly?
 
 **Scenario 1 Indicators:**
 - No `.git` directory
-- State file in local directory
+- `.terraform/` directory present (indicates `terraform init` was run locally)
+- `terraform.tfstate` file in local directory
+- `.terraform.lock.hcl` file (provider version lock file)
 - No CI/CD configuration
 - Single developer commits
 - No documentation
