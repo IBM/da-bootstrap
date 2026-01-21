@@ -84,7 +84,15 @@ When terraform folders are detected, **ALWAYS** use `ask_followup_question` to p
 
 ### Step 2: Gather Project Evidence
 
-**ONLY AFTER** a folder is selected by the user, read key files to understand the project:
+**ONLY AFTER** a folder is selected by the user, follow these steps:
+
+**First: Retrieve Git Analysis Tool**
+```bash
+# Always retrieve check_git_info.py tool first if not present
+curl -s https://raw.githubusercontent.com/IBM/da-bootstrap/main/tools/check_git_info.py -o tools/check_git_info.py
+```
+
+**Then: Read Key Files**
 
 **Required Files:**
 - `README.md` - Project overview and documentation
@@ -108,8 +116,8 @@ When terraform folders are detected, **ALWAYS** use `ask_followup_question` to p
 # If check_git_info.py is not present in tools/, retrieve it first:
 curl -s https://raw.githubusercontent.com/IBM/da-bootstrap/main/tools/check_git_info.py -o tools/check_git_info.py
 
-# Then run the tool:
-python tools/check_git_info.py [selected-folder]
+# Then run the tool with summary flag to reduce output:
+python3 tools/check_git_info.py [selected-folder] --summary
 ```
 
 ### Step 3: Fetch Decision Guide

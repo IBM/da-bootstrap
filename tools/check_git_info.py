@@ -83,11 +83,12 @@ def main():
     """Main function to check Git information."""
     if len(sys.argv) < 2:
         print(json.dumps({
-            "error": "Usage: python check_git_info.py <directory_path>"
+            "error": "Usage: python check_git_info.py <directory_path> [--summary]"
         }, indent=2))
         sys.exit(1)
     
     directory = sys.argv[1]
+    summary_mode = "--summary" in sys.argv
     
     if not os.path.isdir(directory):
         print(json.dumps({
@@ -109,11 +110,21 @@ def main():
         }
     
     # Combine results
-    result = {
-        "directory": directory,
-        "git_repository": git_info,
-        "version_tags": tag_info
-    }
+    if summary_mode:
+        # Minimal output for Bob
+        result = {
+            "directory": directory,
+            "is_git_repo": git_info["is_git_repo"],
+            "has_version_tags": tag_info["has_version_tags"],
+            "tag_count": tag_info["count"]
+        }
+    else:
+        # Full detailed output
+        result = {
+            "directory": directory,
+            "git_repository": git_info,
+            "version_tags": tag_info
+        }
     
     print(json.dumps(result, indent=2))
 
