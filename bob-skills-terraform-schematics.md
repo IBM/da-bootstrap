@@ -131,8 +131,9 @@ git status --porcelain
 **Detection Criteria**:
 - Check if user is logged into IBM Cloud CLI
 - List all workspaces using JSON output for parsing
-- Extract key workspace information: ID, name, status, git repository URL, branch, folder path
+- Extract key workspace information: ID, name, status, git repository URL, **branch**, folder path
 - Support filtering by region if needed
+- **Branch information is critical for matching workspaces to local Terraform code**
 
 **Checks to Perform**:
 1. Verify IBM Cloud CLI authentication: `ibmcloud target` (check if logged in)
@@ -144,7 +145,8 @@ git status --porcelain
 - `id`: Workspace unique identifier
 - `name`: Workspace name
 - `status`: Workspace status (ACTIVE, INACTIVE, etc.)
-- `template_repo`: Git repository URL
+- `template_repo.url`: Git repository URL
+- `template_repo.branch`: **Git branch name (critical for workspace matching)**
 - `template_data[].folder`: Terraform folder path in repo
 - `template_data[].type`: Terraform version
 - `location`: Region where workspace is deployed
@@ -194,10 +196,12 @@ ibmcloud schematics workspace list --output JSON | jq -r '.workspaces[] | "\(.na
 - Support multiple workspace scenarios
 
 **Connection Criteria**:
-A workspace is considered "connected" to local Terraform when ALL of the following match:
+A workspace is considered "connected" to local Terraform when **ALL** of the following match:
 1. Workspace `template_repo.url` matches local git remote URL
-2. Workspace `template_repo.branch` matches local git branch (or user confirms branch alignment)
+2. **Workspace `template_repo.branch` matches local git branch** (branch matching is mandatory for accurate connection detection)
 3. Workspace `template_data[0].folder` matches the Terraform root module path relative to repo root
+
+**Important**: Branch matching is essential because different branches may contain different Terraform configurations. A workspace connected to the wrong branch could apply incorrect infrastructure changes.
 
 **Checks to Perform**:
 1. Get local git remote URL: `git remote get-url origin`
@@ -217,10 +221,11 @@ A workspace is considered "connected" to local Terraform when ALL of the followi
   - `git@github.com:user/repo.git` → `https://github.com/user/repo`
 
 **Reporting** (Simple format):
-- **Scenario A** - Connected workspace found: "Found connected workspace: [name] (ID: [id])"
-- **Scenario B** - Multiple matches: "Found X workspaces connected to this repository: [list names]"
-- **Scenario C** - No connection: "No Schematics workspace connected to this Terraform code"
-- **Scenario D** - Partial match: "Found workspace [name] with same repo but different branch/folder"
+- **Scenario A** - Connected workspace found: "Found connected workspace: [name] (ID: [id]) - matches repo, branch '[branch]', and folder"
+- **Scenario B** - Multiple matches: "Found X workspaces connected to this repository on branch '[branch]': [list names]"
+- **Scenario C** - No connection: "No Schematics workspace connected to this Terraform code (repo + branch '[branch]' + folder)"
+- **Scenario D** - Partial match (repo only): "Found workspace [name] with same repo but different branch (workspace: '[ws_branch]', local: '[local_branch]') or folder"
+- **Scenario E** - Partial match (repo + folder): "Found workspace [name] with same repo and folder but different branch (workspace: '[ws_branch]', local: '[local_branch]')"
 
 **Implementation**:
 ```bash
@@ -253,16 +258,25 @@ for ws in data['workspaces']:
 ```
 
 **Status Classification**:
-- **Fully Connected**: Workspace matches repo, branch, and folder
-- **Partially Connected**: Workspace matches repo but different branch or folder
+- **Fully Connected**: Workspace matches repo URL, branch name, and folder path (all three criteria met)
+- **Partially Connected - Branch Mismatch**: Workspace matches repo and folder but **different branch** (high risk - may apply wrong configuration)
+- **Partially Connected - Folder Mismatch**: Workspace matches repo and branch but different folder
+- **Partially Connected - Repo Only**: Workspace matches repo URL only (different branch and/or folder)
 - **Not Connected**: No workspace matches the local git repository
 - **No Git**: Local Terraform not in git repository (requires Skill 2 & 3)
 
+**Risk Assessment**:
+- Branch mismatches are **HIGH RISK** because different branches often contain incompatible Terraform configurations
+- Folder mismatches are **MEDIUM RISK** as they point to different modules within the same branch
+- Always verify branch alignment before applying Terraform changes through Schematics
+
 **Edge Cases**:
-- Multiple workspaces connected to same repo/branch but different folders
-- Workspace connected to fork vs. original repository
-- Workspace branch deleted locally but still exists remotely
-- Terraform root module in subdirectory vs. repo root
+- Multiple workspaces connected to same repo/branch but different folders (valid for monorepos)
+- Workspace connected to fork vs. original repository (URL mismatch)
+- **Workspace branch deleted locally but still exists remotely** (workspace still functional but disconnected from local)
+- **Local branch renamed but workspace still references old branch name** (requires workspace update)
+- Terraform root module in subdirectory vs. repo root (folder path must match exactly)
+- **Feature branch workflow**: Local on feature branch, workspace on main/master (intentional mismatch during development)
 
 ### 6. Schematics Workspace Creation
 **Status**: ✅ Learned
