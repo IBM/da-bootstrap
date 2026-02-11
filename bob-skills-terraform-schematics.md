@@ -283,7 +283,7 @@ for ws in data['workspaces']:
 **Description**: Ability to create and configure IBM Cloud Schematics workspace using CLI
 **Key Capabilities**:
 - Create new Schematics workspace from JSON configuration
-- Link workspace to git repository
+- Link workspace to git repository with branch matching the detected repository
 - Configure workspace settings (region, resource group, Terraform version)
 - Set workspace name, description, and tags
 - Configure template data and folder paths
@@ -299,7 +299,7 @@ Workspaces are created using `ibmcloud schematics workspace new` command with a 
 - `resource_group`: Resource group name (default: "default")
 - `template_repo`: Git repository configuration
   - `url`: Git repository URL (HTTPS or SSH)
-  - `branch`: Git branch name (default: "main" or "master")
+  - `branch`: Git branch name (must match the current branch from git repository detection)
 - `template_data`: Array of template configurations (usually one element)
   - `folder`: Path to Terraform code within repository (use "." for root)
   - `type`: Terraform version - e.g., `"terraform_v1.12"`
@@ -311,23 +311,28 @@ Workspaces are created using `ibmcloud schematics workspace new` command with a 
 - `template_repo.repo_sha_value`: Specific commit SHA to use
 
 **Workspace Creation Workflow**:
-1. Gather required information from local Terraform and git
-2. Create JSON configuration file
-3. Execute `ibmcloud schematics workspace new --file <config.json>`
-4. Verify workspace creation and capture workspace ID
-5. Optionally import existing Terraform state
+1. Detect current git branch using `git branch --show-current` (from Skill 2)
+2. Gather required information from local Terraform and git repository
+3. Create JSON configuration file with detected branch
+4. Execute `ibmcloud schematics workspace new --file <config.json>`
+5. Verify workspace creation and capture workspace ID
+6. Optionally import existing Terraform state
 
 **Checks to Perform Before Creation**:
 1. Verify IBM Cloud CLI authentication: `ibmcloud target`
-2. Verify git repository exists and has remote configured
-3. Verify Terraform code is committed and pushed to remote
-4. Check if workspace with same name already exists
-5. Validate resource group exists (if not using default)
-6. Ensure git repository is accessible (public or token provided for private)
+2. Verify git repository exists and has remote configured (Skill 2)
+3. Detect current git branch: `git branch --show-current` (Skill 2)
+4. Verify Terraform code is committed and pushed to remote on detected branch
+5. Check if workspace with same name already exists
+6. Validate resource group exists (if not using default)
+7. Ensure git repository is accessible (public or token provided for private)
 
 **Implementation**:
 ```bash
-# Create workspace configuration JSON
+# Detect current branch from repository (Skill 2)
+DETECTED_BRANCH=$(git branch --show-current)
+
+# Create workspace configuration JSON with detected branch
 cat > workspace-config.json << EOF
 {
   "name": "my-terraform-workspace",
@@ -338,7 +343,7 @@ cat > workspace-config.json << EOF
   "tags": ["terraform", "schematics"],
   "template_repo": {
     "url": "https://github.com/user/repo",
-    "branch": "main"
+    "branch": "$DETECTED_BRANCH"
   },
   "template_data": [{
     "folder": ".",
@@ -359,9 +364,9 @@ ibmcloud schematics workspace new --file workspace-config.json --state ./terrafo
 
 **Automated Workspace Creation from Local Terraform**:
 ```bash
-# Gather local information
+# Gather local information (using Skill 2 for git detection)
 LOCAL_REMOTE=$(git remote get-url origin | sed 's/\.git$//' | sed 's|git@github.com:|https://github.com/|')
-LOCAL_BRANCH=$(git branch --show-current)
+LOCAL_BRANCH=$(git branch --show-current)  # Detect current branch from repository
 REPO_ROOT=$(git rev-parse --show-toplevel)
 CURRENT_DIR=$(pwd)
 TF_FOLDER=$(realpath --relative-to="$REPO_ROOT" "$CURRENT_DIR")
@@ -429,7 +434,8 @@ ibmcloud schematics workspace new --file workspace-config.json --output JSON
 **Best Practices**:
 - Use descriptive workspace names that indicate purpose
 - Always specify the Terraform version that matches your code
-- Commit and push code before creating workspace
+- **Always use the detected git branch from the repository (via Skill 2)**
+- Commit and push code to the detected branch before creating workspace
 - Use tags for organization and cost tracking
 - Store workspace ID for future reference
 - Verify workspace creation with `workspace get` command
